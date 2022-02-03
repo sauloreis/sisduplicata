@@ -1,11 +1,12 @@
 <?php
 	session_start();
 
-  require_once('head.php');
+	$title = 'Grupo 4 Mares - Login';
+
+  require_once('includes/head.php');
 ?>
 
 
-  <body>
 
     <div class="container">
 
@@ -37,4 +38,4 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   
-  <?php require_once('footer');?>
+  <?php require_once('includes/footer.php');?>
