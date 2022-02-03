@@ -38,7 +38,7 @@
 
 				<div class="Erro">
 					<?php 
-						$erro=$_SESSION['erro'];
+						$erro=isset($_SESSION['erro'])?$_SESSION['erro']:"";
 							echo(isset($erro['campoVazio'])? $erro['campoVazio']:"" );
 							echo(isset($erro['somenteNumber'])? $erro['somenteNumber']:"" );
 							echo(isset($erro['naoEcontrado'])? $erro['naoEcontrado']:"" );   
@@ -75,7 +75,7 @@
 					    <th scope="col">CODFILIAL </th>
 					    <th scope="col">STATUS </th>
 					    <th scope="col">CODUSUR </th>
-					    <th scope="col">VALORDESC </th>
+					    <!-- <th scope="col">VALORDESC </th>
 					    <th scope="col">DTULTALTER </th>
 					    <th scope="col">BOLETO </th>
 					    <th scope="col">NUMBANCO </th>
@@ -96,8 +96,8 @@
 					    <th scope="col">DTLANCPRORROG </th>
 					    <th scope="col">DTVENCORIG </th>
 					    <th scope="col">CODSUPERVISOR </th>
-					    <th scope="col">CODBANCO </th>
-					    <th scope="col">CODCOBBANCO </th>
+					    <th scope="col">CODBANCO </th> -->
+					    <!-- <th scope="col">CODCOBBANCO </th>
 					    <th scope="col">DTCXMOT </th>
 					    <th scope="col">TIPO </th>
 					    <th scope="col">LINHADIG </th>
@@ -594,7 +594,7 @@
 					    <th scope="col">NSUPAGDIGITAL </th>
 					    <th scope="col">CARTEIRADIGITAL </th>
 					    <th scope="col">NOMECARTEIRADIGITAL </th>
-					    <th scope="col">ARQUIVOSERASA</th>
+					    <th scope="col">ARQUIVOSERASA</th> -->
 					</tr>
 				</thead>
 				<tbody>

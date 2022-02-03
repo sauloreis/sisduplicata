@@ -18,8 +18,9 @@ class Duplicata
 			$prestacao =isset($post['prestacao'])?filter_var($post['prestacao'],FILTER_SANITIZE_NUMBER_INT):NULL;
 			$codCliente=isset($post['codCliente'])?filter_var($post['codCliente'],FILTER_SANITIZE_NUMBER_INT):NULL;
 			if($duplicata != NULL || $codCliente != NULL){
-				$sql = "select * from PCPREST Where DUPLIC='{$duplicata}' or CODCLI ='{$codCliente}'";
-		  	
+				$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+				$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}' or CODCLI ='{$codCliente}' ";
+				
 			    $res = $this->executeSql($sql);
 			   
 
@@ -64,16 +65,16 @@ class Duplicata
 	    	oci_execute($stid);
 	    	
 	    		
-	   	$nrows = oci_fetch_all($stid,$res);
+	   	//$nrows = oci_fetch_all($stid,$res);
 			
-	    	// var_dump($nrows);
+	    	//var_dump($nrows);
 	    	// echo'<pre>';
 	    	// var_dump($res);
 	    	// echo'</pre>';
 			 
 			 	
-
-	    	 return $res;
+			
+	    	 return $stid;
 
 	    	 oci_close($con); 				       
    	
