@@ -1,30 +1,50 @@
 <?php
 	session_start();	
 	//Incluindo a conexão com banco de dados
-	include_once("conexao.php");	
+	require_once("ConOracle.php");	
 	//O campo usuário e senha preenchido entra no if para validar
 	if((isset($_POST['email'])) && (isset($_POST['senha']))){
-		$usuario = mysqli_real_escape_string($conn, $_POST['email']); //Escapar de caracteres especiais, como aspas, prevenindo SQL injection
-		$senha = mysqli_real_escape_string($conn, $_POST['senha']);
-		$senha = md5($senha);
+		$usuario =  $_POST['email']; //Escapar de caracteres especiais, como aspas, prevenindo SQL injection
+		$senha =  $_POST['senha'];
+		//$senha = md5($senha);
 			
 		//Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
-		$result_usuario = "SELECT * FROM usuarios WHERE email = '$usuario' && senha = '$senha' LIMIT 1";
-		$resultado_usuario = oci_parse($conn, $result_usuario);
-		$resultado =oci_fetch_assoc($resultado_usuario);
+		$sql = "SELECT * FROM G4M_USER WHERE email = '$usuario' and senha = '$senha' ";
+		$con = new ConOracle();
+	    $link = $con->conectar();
+	    $stid = oci_parse($link, $sql);
+
+	   
+	    	oci_execute($stid);
+		while ($resultado = oci_fetch_array($stid,OCI_RETURN_NULLS+OCI_ASSOC) ){
+		foreach($resultado as $key => $value){
+			$_SESSION['usuarioId'] = $resultado['ID'];
+			$_SESSION['usuarioNome'] = $resultado['NOME'];
+			$_SESSION['usuarioNiveisAcessoId'] = $resultado['NIVEIS_ACESSO'];
+			$_SESSION['usuarioEmail'] = $resultado['EMAIL'];
+		}
+			
+		}
+		
+
+		
 		
 		//Encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
 		if(isset($resultado)){
-			$_SESSION['usuarioId'] = $resultado['id'];
-			$_SESSION['usuarioNome'] = $resultado['nome'];
-			$_SESSION['usuarioNiveisAcessoId'] = $resultado['niveis_acesso_id'];
-			$_SESSION['usuarioEmail'] = $resultado['email'];
-			if($_SESSION['usuarioNiveisAcessoId'] == "1"){
-				header("Location: administrativo.php");
+			//$_SESSION['usuarioId'] = $resultado['id'];
+			//$_SESSION['usuarioNome'] = $resultado['nome'];
+			//$_SESSION['usuarioNiveisAcessoId'] = $resultado['NIVEIS_ACESSO'];
+			//$_SESSION['usuarioEmail'] = $resultado['email'];
+			if($_SESSION['usuarioNiveisAcessoId'] == 1){
+				echo('niveis_acesso');
+				header("Location: searchduplicata.php");
 			}elseif($_SESSION['usuarioNiveisAcessoId'] == "2"){
+				echo('niveis_acesso 2');
 				header("Location: colaborador.php");
 			}else{
-				header("Location: cliente.php");
+				echo('niveis_acesso 3');
+				//header("Location: cliente.php");
+				var_dump($_SESSION);
 			}
 		//Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
 		//redireciona o usuario para a página de login

@@ -53,7 +53,7 @@ if (isset($_SESSION['user'])) {
     	
 		
 		while($r = oci_fetch_array($res,OCI_RETURN_NULLS+OCI_ASSOC) ){
-			var_dump($r);		
+			//var_dump($r);		
 			
         	echo"<tr>"; //<!-- inicio da linha da tabela       -->
         	echo "
