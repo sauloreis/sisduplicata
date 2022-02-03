@@ -4,15 +4,15 @@
 
 class ConOracle
 {
-	private $ora_user='admin';
-	private $ora_senha='82111971';
-	private $ora_bd ="(DESCRIPTION =
-       (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
-       (CONNECT_DATA =
-       (SERVER = DEDICATED)
-        (SERVICE_NAME = XE)
-       )
-     )";
+	private $ora_user='TESTE';
+	private $ora_senha='testefourmares';
+	private $ora_bd ="	(DESCRIPTION =
+	  (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.222)(PORT = 1521))
+	  (CONNECT_DATA =
+		(SERVER = DEDICATED)
+	   (SID= DBTESTE)
+	  )
+	)";
 	public function conectar(){
 
 		$oraConexao = oci_connect($this->ora_user, $this->ora_senha, $this->ora_bd);
