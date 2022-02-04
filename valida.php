@@ -1,13 +1,14 @@
 <?php
 	session_start();	
-	//Incluindo a conexão com banco de dados
-	require_once("ConOracle.php");	
+		
 	//O campo usuário e senha preenchido entra no if para validar
-	if((isset($_POST['email'])) && (isset($_POST['senha']))){
+	if($_POST['email']!='' and $_POST['senha']!=''){
 		$usuario =  $_POST['email']; //Escapar de caracteres especiais, como aspas, prevenindo SQL injection
 		$senha =  $_POST['senha'];
 		//$senha = md5($senha);
-			
+		
+		//Incluindo a conexão com banco de dados
+		require_once("ConOracle.php");	
 		//Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
 		$sql = "SELECT * FROM G4M_USER WHERE email = '$usuario' and senha = '$senha' ";
 		$con = new ConOracle();
@@ -15,14 +16,16 @@
 	    $stid = oci_parse($link, $sql);
 
 	   
-	    	oci_execute($stid);
+	    oci_execute($stid);
+  			
 		while ($resultado = oci_fetch_array($stid,OCI_RETURN_NULLS+OCI_ASSOC) ){
-		foreach($resultado as $key => $value){
-			$_SESSION['usuarioId'] = $resultado['ID'];
-			$_SESSION['usuarioNome'] = $resultado['NOME'];
-			$_SESSION['usuarioNiveisAcessoId'] = $resultado['NIVEIS_ACESSO'];
-			$_SESSION['usuarioEmail'] = $resultado['EMAIL'];
-		}
+			foreach($resultado as $key => $value){
+				$usuarioId = $resultado['ID'];
+				$usuarioNome = $resultado['NOME'];
+				$niveisDeacesso = $resultado['NIVEIS_ACESSO'];
+				$usuarioEmail = $resultado['EMAIL'];
+				$password = $resultado['SENHA'];
+			}
 			
 		}
 		
@@ -30,32 +33,43 @@
 		
 		
 		//Encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
-		if(isset($resultado)){
-			//$_SESSION['usuarioId'] = $resultado['id'];
-			//$_SESSION['usuarioNome'] = $resultado['nome'];
-			//$_SESSION['usuarioNiveisAcessoId'] = $resultado['NIVEIS_ACESSO'];
-			//$_SESSION['usuarioEmail'] = $resultado['email'];
-			if($_SESSION['usuarioNiveisAcessoId'] == 1){
-				echo('niveis_acesso');
-				header("Location: searchduplicata.php");
-			}elseif($_SESSION['usuarioNiveisAcessoId'] == "2"){
-				echo('niveis_acesso 2');
-				header("Location: colaborador.php");
+		if($usuarioEmail === $usuario){
+			if($password === $senha ){
+				$_SESSION['usuarioId'] = $usuarioId;
+				$_SESSION['usuarioNome'] = $usuarioNome;
+				$_SESSION['niveisDeacesso'] = $niveisDeacesso;
+				$_SESSION['usuarioEmail'] = $usuarioEmail;
+
+				if($_SESSION['niveisDeacesso'] == 1){
+					
+					header("Location: searchduplicata.php");
+				  }elseif($_SESSION['niveisDeacesso'] == "2"){
+						echo('niveis_acesso 2');
+						header("Location: colaborador.php");
+				     }else{
+							echo('niveis_acesso 3');
+							//header("Location: cliente.php");
+							
+						}
 			}else{
-				echo('niveis_acesso 3');
-				//header("Location: cliente.php");
-				var_dump($_SESSION);
+				$_SESSION['loginErro'] = "Usuário ou senha Inválido";
+				header("Location: index.php");
 			}
-		//Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
-		//redireciona o usuario para a página de login
-		}else{	
+			
+		
+		}else{
+			//Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
+			//redireciona o usuario para a página de login	
 			//Váriavel global recebendo a mensagem de erro
 			$_SESSION['loginErro'] = "Usuário ou senha Inválido";
 			header("Location: index.php");
+
+			
 		}
 	//O campo usuário e senha não preenchido entra no else e redireciona o usuário para a página de login
 	}else{
-		$_SESSION['loginErro'] = "Usuário ou senha inválido";
+		$_SESSION['campvazio'] = "Todos os campos devem ser preechidos";
 		header("Location: index.php");
+		
 	}
 ?>
