@@ -2,6 +2,7 @@
 	session_start();
 	
 	unset(
+		$_SESSION['user'],
 		$_SESSION['usuarioId'],
 		$_SESSION['usuarioNome'],
 		$_SESSION['usuarioNiveisAcessoId'],

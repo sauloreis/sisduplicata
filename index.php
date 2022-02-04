@@ -38,4 +38,4 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   
-  <?php require_once('includes/footer.php');?>
+  <?php //require_once('includes/footer.php');?>
