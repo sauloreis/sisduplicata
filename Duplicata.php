@@ -67,7 +67,7 @@ class Duplicata
 	    		
 	   	//$nrows = oci_fetch_all($stid,$res);
 			
-	    	var_dump($stid);
+	    	//var_dump($stid);
 	    	// echo'<pre>';
 	    	// var_dump($res);
 	    	// echo'</pre>';

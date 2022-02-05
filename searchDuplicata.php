@@ -4,17 +4,11 @@ session_start();
 //informção do head
 $title = 'Pesquisar Duplicata';
 require_once('includes/head.php');
-
 require_once ('Duplicata.php');
 
-$_SESSION['user']='helenilson';
 
-if (isset($_SESSION['user'])) {
 
-    
-    
-    $usuario = $_SESSION['user'];
-    
+if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
     
     if (isset($_POST['buttonSearch'])){   	
@@ -53,7 +47,7 @@ if (isset($_SESSION['user'])) {
     	
 		
 		while($r = oci_fetch_array($res,OCI_RETURN_NULLS+OCI_ASSOC) ){
-			//var_dump($r);		
+			
 			
         	echo"<tr>"; //<!-- inicio da linha da tabela       -->
         	echo "
@@ -89,11 +83,12 @@ if (isset($_SESSION['user'])) {
         require_once("includes/formupdatedata.php");
 
 } else {
-     //header("location: index.php");
-         var_dump($_SESSION);
+		$_SESSION['msgUserNotAutorized']= "Crie uma conta ou faça o login";
+     header("location: index.php");
+        
     die;
 
  }
 
- require_once("includes/footer.php");
+// require_once("includes/footer.php");
 
