@@ -10,7 +10,7 @@
         	<!-- formulario para mudar a data -->
 
         	<div>
-				<form action="duplicata.php" method="POST">
+				<form action="searchDuplicata.php" method="POST">
 
 					<div class="form-group col-sm-3 ">
 
@@ -19,9 +19,9 @@
 
 					</div>
 
-					<input type="hidden" name="CODCLI" value="<?php //echo(isset($CODCLI)?$CODCLI: "");?>">
-					<input type="hidden" name="PREST" value="<?php //echo(isset($PREST)?$PREST: "");?>">
-					<input type="hidden" name="DUPLIC" value="<?php //echo(isset($DUPLIC)?$DUPLIC: "") ;?>">
+					<input type="hidden" name="CODCLI"  value="">
+					<input type="hidden" name="PREST"  value="">
+					<input type="hidden" name="DUPLIC"  value="">
 				  
 				  	<div class="form-group col-sm-3 ">
 				   		 <label for="alterardtaPagamento">altera Data de Pagamento</label>
