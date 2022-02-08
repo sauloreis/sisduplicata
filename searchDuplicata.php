@@ -20,36 +20,7 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
 	}
 
-	if(isset($_POST['salvarData']) ){
-
-    	
-    	$duplicat = new Duplicata();
-    	$duplicat = $duplicat->alterarDataPagamento($_POST);
-
-    	$resposta = $duplicat;
-		//$duplicata = new Duplicata();
-
-		// $post['duplicata']=$duplicata;
-		// $post['buttonSearch']='Procurar';
-		// $post['codCliente']=$codCliente;
-
-		// var_dump($post);
-		
-    	//$duplicata = $duplicata->searchDuplicata($post['buttonSearch']);    	
-
-    	//$res = $duplicata;
-
-		// while($resposta = oci_fetch_array($resposta,OCI_RETURN_NULLS+OCI_ASSOC) ){
-		// 	foreach($resposta as $value){
-		// 		echo"<pre>";
-		// 		print_r($value);
-		// 		echo "<\pre>";
-		// 	}
-		// }
-		//var_dump($res);
-
-
-	}
+	var_dump($res);
 
 	//chama o formulario que procura a duplicata em html e o inicio da tabela 
 	require_once("includes/formsearchduplicata.php");

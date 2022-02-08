@@ -1,8 +1,8 @@
-function valCheckBox(codClie,codDuplica,prestacao,value){
 
+
+function valCheckBox(codClie,codDuplica,prestacao,value){
     
-    let checkbox = document.querySelector("#checkbox"+ value).value;
-   
+    let checkbox = document.querySelector("#checkbox"+ value).value;   
     let dataPagamento = document.querySelector("#dtaPagamento");
     dataPagamento.value = checkbox;
 
@@ -15,6 +15,49 @@ function valCheckBox(codClie,codDuplica,prestacao,value){
     
 
 }
+
+$(document).ready(function(){
+    
+    $("#salvarData").click(function(){
+        if($('#alterardtaPagamento').val().length > 0){
+            
+            
+            $.ajax({
+                url:'classes/alterarDataPagamento.php',
+                method:'post',
+                data: $('#atualizarData').serialize(),                  
+                success: function(data){
+                   if(data){
+                       alert(data);
+                       atualizarPagina();
+                   }else{
+                       alert("Erro ao atualizar");
+                   }
+                }
+            });
+        }else{
+            alert("campo vazio");
+        }
+    });
+
+    function atualizarPagina(){
+
+        
+        $.ajax({
+            url:'classes/procurarDuplicata.php',
+            method:'post',
+            data:$('#atualizarData').serialize(),
+            success: function(data){
+                if(data){
+                    alert(data);
+                }else{
+                    alert("sem dados");
+                }
+            }
+        });
+    }
+
+});//ready
 
 
 

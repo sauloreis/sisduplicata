@@ -64,7 +64,7 @@ class Duplicata
 	    $stid = oci_parse($link, $sql);
 
 	   
-	    	oci_execute($stid);
+	    	oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
 	    	
 	    		
 	   	//$nrows = oci_fetch_all($stid,$res);
