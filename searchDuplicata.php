@@ -6,7 +6,9 @@ $title = 'Pesquisar Duplicata';
 require_once('includes/head.php');
 require_once ('Duplicata.php');
 
-
+//usuario de teste 
+$_SESSION['usuarioId']=1;
+$_SESSION['usuarioEmail']='helenilson';
 
 if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
