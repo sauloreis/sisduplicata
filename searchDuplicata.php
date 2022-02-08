@@ -20,16 +20,7 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
 	}
 
-	if(isset($_POST['salvarData']) ){
-
-    	
-    	$duplicata = new Duplicata();
-    	$duplicata = $duplicata->alterarDataPagamento($_POST);
-
-    	$res = $duplicata;
-
-
-	}
+	var_dump($res);
 
 	//chama o formulario que procura a duplicata em html e o inicio da tabela 
 	require_once("includes/formsearchduplicata.php");
@@ -48,20 +39,30 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 		
 		while($r = oci_fetch_array($res,OCI_RETURN_NULLS+OCI_ASSOC) ){
 			
+			$cod = "{$r['CODCLI']}{$r['DUPLIC']}{$r['PREST']}";
+			$codCli =$r['CODCLI'] ;
+			$duplicata= $r['DUPLIC'];
+			$prestacao =$r['PREST'] ;
+			$dataPaga = "{$r['DTPAG']}";
 			
         	echo"<tr>"; //<!-- inicio da linha da tabela       -->
         	echo "
         	 	<td><div class='form-check'>
-  					<input class='form-check-input' type='checkbox' value='$r[DUPLIC] ' id='flexCheckDefault'>
-  					<label class='form-check-label' for='flexCheckDefault'>
+  					<input class='form-check-input' type='checkbox' value='{$dataPaga}' id='checkbox{$cod}'
+					   onclick='valCheckBox($codCli,$duplicata,$prestacao,$cod)'>
+  					<label class='form-check-label' for='checkbox{$cod}'>
     				
   					</label>
 				</div>
 				</td>";
 					
         	 foreach ($r as $key => $value) {        	 	
-
-        	 	echo "<td>{$value}</td>";        	 	
+				
+        	 	echo "<td>
+				  <label class='form-check-label' for='checkbox{$cod}'>
+				 {$value}
+				 </td>";
+				        	 	
 
         	  }
         	  
@@ -79,6 +80,8 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
     } //fechamento do if
 
+	
+
     // inclui o formulario para atualizar a data 
         require_once("includes/formupdatedata.php");
 
@@ -90,5 +93,5 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
  }
 
-// require_once("includes/footer.php");
+require_once("includes/footer.php");
 

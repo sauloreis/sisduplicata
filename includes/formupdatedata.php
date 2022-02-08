@@ -10,7 +10,7 @@
         	<!-- formulario para mudar a data -->
 
         	<div>
-				<form action="duplicata.php" method="POST">
+				<form  id="atualizarData">
 
 					<div class="form-group col-sm-3 ">
 
@@ -19,9 +19,9 @@
 
 					</div>
 
-					<input type="hidden" name="CODCLI" value="<?php //echo(isset($CODCLI)?$CODCLI: "");?>">
-					<input type="hidden" name="PREST" value="<?php //echo(isset($PREST)?$PREST: "");?>">
-					<input type="hidden" name="DUPLIC" value="<?php //echo(isset($DUPLIC)?$DUPLIC: "") ;?>">
+					<input type="hidden" name="CODCLI" id="CODCLI"  value="">
+					<input type="hidden" name="PREST"  id="PREST"  value="">
+					<input type="hidden" name="DUPLIC" id="DUPLIC"  value="">
 				  
 				  	<div class="form-group col-sm-3 ">
 				   		 <label for="alterardtaPagamento">altera Data de Pagamento</label>
@@ -30,7 +30,7 @@
 		
 
 					<div class="-sm-2 buton ">
-						<input type="submit" class="btn btn-primary " name='salvarData' value="Salvar">
+						<input type="" class="btn btn-primary " id="salvarData" name='salvarData' value="Salvar">
 					</div>
 
 				</form>

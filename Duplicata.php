@@ -43,15 +43,17 @@ class Duplicata
 		$prestacao =isset($post['PREST'])?filter_var($post['PREST'],FILTER_SANITIZE_NUMBER_INT):NULL;
 		$codCliente=isset($post['CODCLI'])?filter_var($post['CODCLI'],FILTER_SANITIZE_NUMBER_INT):NULL;
 		$DataPagamento = isset($post['alterardtaPagamento'])?$post['alterardtaPagamento']:0000-00-00;
-
 		
-	    $sql = "update PCPREST  set DTPAG='$DataPagamento' Where DUPLIC = '$duplicata' and PREST= '$prestacao' and CODCLI='$codCliente'";
+		$date = new DateTime($DataPagamento);
+		$dataPagamento = $date->format('d-m-Y');
+		
+	    $sql = "update PCPREST  set DTPAG='$dataPagamento' Where DUPLIC = '$duplicata' and PREST= '$prestacao' and CODCLI='$codCliente'";
 	    
-	   	
 	    $res = $this->executeSql($sql);
 
 		    return $res;
-	    
+			return $duplicata;
+			return $codCliente;
 
 	}
 
@@ -62,7 +64,7 @@ class Duplicata
 	    $stid = oci_parse($link, $sql);
 
 	   
-	    	oci_execute($stid);
+	    	oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
 	    	
 	    		
 	   	//$nrows = oci_fetch_all($stid,$res);

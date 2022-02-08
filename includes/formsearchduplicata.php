@@ -9,7 +9,7 @@
 
 
 				<div>
-					<form action="searchduplicata.php" method="POST">
+					<form action="searchduplicata.php" method="POST" id="searchduplicata">
 
 					  <div class="form-group col-sm-3 ">
 					    <label for="duplicata">Duplicata</label>
@@ -41,10 +41,16 @@
 						$erro=isset($_SESSION['erro'])?$_SESSION['erro']:"";
 							echo(isset($erro['campoVazio'])? $erro['campoVazio']:"" );
 							echo(isset($erro['somenteNumber'])? $erro['somenteNumber']:"" );
-							echo(isset($erro['naoEcontrado'])? $erro['naoEcontrado']:"" );   
+							echo(isset($erro['naoEcontrado'])? $erro['naoEcontrado']:"" ); 
+							$nrowsAffcted=isset($_SESSION['nrowsAffcted'])?$_SESSION['nrowsAffcted']:"";
+							echo(isset($_SESSION['nrowsAffcted'])? $_SESSION['nrowsAffcted']:"" );
+
 					?>
 					
 				</div>
+
+
+				
 
 		<div class="table-responsive">
 			<table class="table  table-condensed table-bordered table-hover table-sm">
