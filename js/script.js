@@ -28,7 +28,7 @@ $(document).ready(function(){
                 data: $('#atualizarData').serialize(),                  
                 success: function(data){
                    if(data){
-                       alert(data);
+                  
                        atualizarPagina();
                    }else{
                        alert("Erro ao atualizar");
@@ -36,23 +36,23 @@ $(document).ready(function(){
                 }
             });
         }else{
-            alert("campo vazio");
+            alert("campo alterar data não pode ser vazio");
         }
     });
 
     function atualizarPagina(){
-
         
         $.ajax({
             url:'classes/procurarDuplicata.php',
             method:'post',
             data:$('#atualizarData').serialize(),
-            success: function(data){
-                if(data){
-                    alert(data);
-                }else{
-                    alert("sem dados");
-                }
+            success: function(data){              
+                
+                
+                location.reload();
+                $('#alertBalon').removeClass('fade');
+                $('#alertBalon').addClass('show');
+                
             }
         });
     }

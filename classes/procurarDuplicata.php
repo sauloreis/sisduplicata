@@ -1,11 +1,12 @@
 <?php
 require_once "../ConOracle.php";
 
-if(isset($_POST['buttonSearch']) and !empty($_POST['duplicata']) || !empty($_POST['codCliente'])){
+print_r($_POST);
+if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
 
-    $duplicata =isset($_POST['duplicata'])?filter_var($_POST['duplicata'],FILTER_SANITIZE_NUMBER_INT):NULL;
-    $prestacao =isset($_POST['prestacao'])?filter_var($_POST['prestacao'],FILTER_SANITIZE_NUMBER_INT):NULL;
-    $codCliente=isset($_POST['codCliente'])?filter_var($_POST['codCliente'],FILTER_SANITIZE_NUMBER_INT):NULL;
+    $duplicata =isset($_POST['DUPLIC'])?filter_var($_POST['DUPLIC'],FILTER_SANITIZE_NUMBER_INT):NULL;
+    $prestacao =isset($_POST['PREST'])?filter_var($_POST['PREST'],FILTER_SANITIZE_NUMBER_INT):NULL;
+    $codCliente=isset($_POST['CODCLI'])?filter_var($_POST['CODCLI'],FILTER_SANITIZE_NUMBER_INT):NULL;
     if($duplicata != NULL || $codCliente != NULL){
         $sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
         $sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}' or codcli='{$codCliente}' ";
@@ -14,9 +15,9 @@ if(isset($_POST['buttonSearch']) and !empty($_POST['duplicata']) || !empty($_POS
         $link = $con->conectar();
        $stid = oci_parse($link, $sql); 
        oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
-       
-
-        return $stid;
+       $res  = $stid;
+        
+        return $res;
     }else{
         $_SESSION['erro']['somenteNumber']='somente numero!';
     }
