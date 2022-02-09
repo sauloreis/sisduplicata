@@ -37,7 +37,7 @@
 
 				<div class="Erro">
 					<?php 
-						$erro=isset($_SESSION['erro'])?$_SESSION['erro']:"";
+						$erro=isset($_SESSION['error'])?$_SESSION['error']:"";
 							echo(isset($erro['campoVazio'])? $erro['campoVazio']:"" );
 							echo(isset($erro['somenteNumber'])? $erro['somenteNumber']:"" );
 							echo(isset($erro['naoEcontrado'])? $erro['naoEcontrado']:"" ); 
@@ -49,7 +49,7 @@
 				</div>
 				<div class="alertaSucesso">
 					<div id='alertBalon'class="alert alert-success alert-dismissible fade " role="alert">
-						<strong>Atualizado com sucesso!</strong> 
+						<strong id="txtAlert">Atualizado com sucesso!</strong> 
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>

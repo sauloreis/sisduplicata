@@ -1,4 +1,4 @@
-<?
+<?php
 // fim da tag tbody da table, table
 // fomulario pra mudar a data  
 ?>
@@ -7,7 +7,7 @@
         		</table>
         	</div> <!-- fim table responsive -->
 
-        	<!-- formulario para mudar a data -->
+        	<?php //formulario para mudar a data ?>
 
         	<div class="row mt-5">
 				<form class="col-sm-12"  id="atualizarData">
@@ -23,7 +23,7 @@
 				  
 						<div class="form-group col-sm-3 ">
 							<label for="alterardtaPagamento">altera Data de Pagamento</label>
-							<input type="date" name="alterardtaPagamento" class="form-control" id="alterardtaPagamento" placeholder="<?php // echo($DTPAG );?>">
+							<input type="date" name="alterardtaPagamento" class="form-control" id="alterardtaPagamento" placeholder="<?php // echo($DTPAG );?>" required>
 						</div>
 		
 
