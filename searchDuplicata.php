@@ -20,7 +20,7 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
 	}
 
-	var_dump($res);
+	// var_dump($res);
 
 	//chama o formulario que procura a duplicata em html e o inicio da tabela 
 	require_once("includes/formsearchduplicata.php");
