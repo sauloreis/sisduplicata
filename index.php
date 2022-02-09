@@ -1,38 +1,37 @@
 <?php
 	session_start();
-	
+	//titulo da pagina	
 	$title = 'Grupo 4 Mares - Login';
-
-  require_once('includes/head.php');
-  
-
-
+	//chamando o cabeçalho html
+  	require_once('includes/head.php');
   
 ?>
-
-
-
     <div class="container">
 				
       <form class="form-signin" method="POST" action="valida.php">
 				<div class="Erro">
-					<p class="text-center text-danger">
+				  						
+				
 						<?php 
-						
-							echo isset($_SESSION['msgUserNotAutorized'])?$_SESSION['msgUserNotAutorized']:'';
-							echo isset($_SESSION['campvazio'])?$_SESSION['campvazio']:'';
-							echo isset($_SESSION['loginErro'])?$_SESSION['loginErro']:'' ;
 
+						if(isset($_SESSION['error'])){
+								
+							echo "<div class='alert alert-danger' role='alert'>";						
 							
-							unset(
-								$_SESSION['loginErro'],
-								$_SESSION['campvazio'],
-								$_SESSION['msgUserNotAutorized']
-							);
+									echo isset($_SESSION['error']['campvazio'])?$_SESSION['error']['campvazio']:'';
+									echo isset($_SESSION['error']['loginErro'])?$_SESSION['error']['loginErro']:'' ;
+									echo isset($_SESSION['error']['notAuthorized'])?$_SESSION['error']['notAuthorized']:'' ;
+
+									unset(
+										$_SESSION['error']										
+									);
+									
+							echo"</div>";
+						}
 							
 							
 						?>
-					</p>
+					
 						
 				</div>
 

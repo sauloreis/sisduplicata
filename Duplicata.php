@@ -26,13 +26,13 @@ class Duplicata
 
 			    return $res;
 			}else{
-				$_SESSION['erro']['somenteNumber']='somente numero!';
+				$_SESSION['error']['somenteNumber']='somente numero!';
 			}
 
 		    
 		}else{
 
-			$_SESSION['erro']['campoVazio']='Preencha pelo menos um campo CODCLIENTE ou DUPLICATA!';
+			$_SESSION['error']['campoVazio']='Preencha pelo menos um campo CODCLIENTE ou DUPLICATA!';
 
 		}
 	}

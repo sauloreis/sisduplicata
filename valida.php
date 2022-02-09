@@ -1,6 +1,6 @@
 <?php
 	session_start();	
-		
+
 	//O campo usuário e senha preenchido entra no if para validar
 	if($_POST['email']!='' and $_POST['senha']!=''){
 		$usuario =  $_POST['email']; //Escapar de caracteres especiais, como aspas, prevenindo SQL injection
@@ -48,11 +48,11 @@
 						header("Location: colaborador.php");
 				     }else{
 							echo('niveis_acesso 3');
-							//header("Location: cliente.php");
+							header("Location: cliente.php");
 							
 						}
 			}else{
-				$_SESSION['loginErro'] = "Usuário ou senha Inválido";
+				$_SESSION['error']['loginErro'] = "Usuário ou senha Inválido";
 				header("Location: index.php");
 			}
 			
@@ -61,14 +61,14 @@
 			//Não foi encontrado um usuario na tabela usuário com os mesmos dados digitado no formulário
 			//redireciona o usuario para a página de login	
 			//Váriavel global recebendo a mensagem de erro
-			$_SESSION['loginErro'] = "Usuário ou senha Inválido";
+			$_SESSION['error']['loginErro'] = "Usuário ou senha Inválido";
 			header("Location: index.php");
 
 			
 		}
 	//O campo usuário e senha não preenchido entra no else e redireciona o usuário para a página de login
 	}else{
-		$_SESSION['campvazio'] = "Todos os campos devem ser preechidos";
+		$_SESSION['error']['campvazio'] = "Todos os campos devem ser preechidos";
 		header("Location: index.php");
 		
 	}
