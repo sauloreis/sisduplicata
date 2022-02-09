@@ -4,18 +4,15 @@
 
 class ConOracle
 {
-	private $ora_user='TESTE';
-	private $ora_senha='testefourmares';
-	private $ora_bd ="	(DESCRIPTION =
-	  (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.222)(PORT = 1521))
-	  (CONNECT_DATA =
-		(SERVER = DEDICATED)
-	   (SID= DBTESTE)
-	  )
-	)";
 	public function conectar(){
 
-		$oraConexao = oci_connect($this->ora_user, $this->ora_senha, $this->ora_bd);
+		$config = "config.ini"; //configuração local
+		//$config = "configOra.ini"; //configuração remoto
+		$configOra =parse_ini_file($config); 
+
+		$oraConexao = oci_connect($configOra['ORACLE_USER'],
+								  $configOra['ORACLE_PASSWORD'],
+								  $configOra['ORACLE_BD']);
 
 		if(!$oraConexao){
 			$e = oci_error();

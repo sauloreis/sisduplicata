@@ -1,8 +1,13 @@
+body{
+	position: relative;
+}
 .buton{
 	
 	height: 80px;
 	display: flex !important;
 	align-items: center !important;
+
+	
 }
 
 table{
@@ -25,4 +30,9 @@ td{
   border-right: 1px solid #ccc;
   
   
+}
+
+.alertaSucesso{
+	top:0;
+	position: absolute;
 }
