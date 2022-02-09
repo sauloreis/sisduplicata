@@ -1,4 +1,4 @@
-<?
+<?php
 // fomulario da duplicata junto com o inicio da tabela
 // separei para nao suja muito o php 
 ?>
@@ -8,28 +8,27 @@
 <div class="container">
 
 
-				<div>
-					<form action="searchduplicata.php" method="POST" id="searchduplicata">
+				<div class="row mb-4 ">
+					<form class="col-md-12"action="searchduplicata.php" method="POST" id="searchduplicata">
+						<div class="row">
+							<div class="col-md-4 ">
+								<label for="duplicata">Duplicata</label>
+								<input type="text" name="duplicata" class="form-control" id="duplicata" placeholder="Duplicata">
+							</div>
+							<div class="col-md-2  ">
+								<label for="prestacao">Prestação</label>
+								<input type="text" name="prestacao" class="form-control" id="prestacao" placeholder="Prestação">
+							</div>
 
-					  <div class="form-group col-sm-3 ">
-					    <label for="duplicata">Duplicata</label>
-					    <input type="text" name="duplicata" class="form-control" id="duplicata" placeholder="Duplicata">
-					  </div>
-					  <div class="form-group col-sm-3 ">
-					    <label for="prestacao">Prestação</label>
-					    <input type="text" name="prestacao" class="form-control" id="prestacao" placeholder="Prestação">
-					  </div>
+								<div class="col-md-4 ">
+									<label for="codCliente">Cod Cliente</label>
+									<input type="text" name="codCliente" class="form-control" id="codCliente" placeholder="Codigo do Cliente">
+								</div>
 
-				  		<div class="form-group col-sm-3 ">
-						    <label for="codCliente">Cod Cliente</label>
-						    <input type="text" name="codCliente" class="form-control" id="codCliente" placeholder="Codigo do Cliente">
-
-							
-						</div>
-
-						<div class="-sm-2 buton ">
-							<input type="submit" class="btn btn-primary " name='buttonSearch' value="Procurar">
-						</div>
+								<div class="col-sm-2 buton pt-4 ">
+								<input type="submit" class="btn btn-primary " name='buttonSearch' value="Procurar">
+							</div>
+						</div>		  
 
 					</form>
 
@@ -48,7 +47,16 @@
 					?>
 					
 				</div>
-
+				<div class="alertaSucesso">
+					<div id='alertBalon'class="alert alert-success alert-dismissible fade " role="alert">
+						<strong>Atualizado com sucesso!</strong> 
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>	
+				
+				
 
 				
 

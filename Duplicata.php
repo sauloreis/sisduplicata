@@ -58,16 +58,21 @@ class Duplicata
 	}
 
 	public function executeSql($sql){
-			
+		//$query ="SELECT COUNT(*) AS NUMBER_OF_ROWS FROM  ($sql)";	
+		//var_dump($query);
 		$con = new ConOracle();
 	    $link = $con->conectar();
 	    $stid = oci_parse($link, $sql);
-
+		//oci_define_by_name($stid, 'NUMBER_OF_ROWS', $number_of_rows);
 	   
 	    	oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
+			
+			//var_dump($number_of_rows);
+
+			//var_dump($stid);
 	    	
 	    		
-	   	//$nrows = oci_fetch_all($stid,$res);
+	   //	$nrows = oci_fetch_all($stid,$res);
 			
 	    	//var_dump($stid);
 	    	// echo'<pre>';
