@@ -13,13 +13,28 @@ class Duplicata
 
 
 		if(isset($post['buttonSearch']) and !empty($post['duplicata']) || !empty($post['codCliente'])){
-
+			
 			$duplicata =isset($post['duplicata'])?filter_var($post['duplicata'],FILTER_SANITIZE_NUMBER_INT):NULL;
 			$prestacao =isset($post['prestacao'])?filter_var($post['prestacao'],FILTER_SANITIZE_NUMBER_INT):NULL;
 			$codCliente=isset($post['codCliente'])?filter_var($post['codCliente'],FILTER_SANITIZE_NUMBER_INT):NULL;
 			if($duplicata != NULL || $codCliente != NULL){
-				$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
-				$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}' or codcli='{$codCliente}' ";
+				if($duplicata != '' && $codCliente != '' && $prestacao != ""){
+					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}' and codcli='{$codCliente}' and PREST =$prestacao ";
+				}elseif ($duplicata != '' && $prestacao != "" ){
+					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}'  and PREST =$prestacao ";
+				}elseif ($codCliente != '' && $prestacao != "" ){
+					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where codcli='{$codCliente}' and PREST =$prestacao ";
+				}else{
+					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}' or codcli='{$codCliente}'  ";
+				}
+
+
+				
+				
 				
 			    $res = $this->executeSql($sql);
 			   
