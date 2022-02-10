@@ -2,11 +2,11 @@
 
 require_once "../ConOracle.php";
 // acesso somente para que tiver atuorização
-if (!isset($_SESSION['usuarioId']) and !isset($_SESSION['usuarioEmail'])) {
-    $_SESSION['error']['notAuthorized'] = "faça o login ou crie uma conta";
-		header("Location: ../index.php");
-        die;
-}
+// if (!isset($_SESSION['usuarioId']) and !isset($_SESSION['usuarioEmail'])) {
+//     $_SESSION['error']['notAuthorized'] = "faça o login ou crie uma conta";
+// 		header("Location: ../index.php");
+//         die;
+// }
 
 if(isset($_POST['CODCLI']) ){
 

@@ -8,6 +8,7 @@ require_once ('Duplicata.php');
 
 
 
+
 if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
     

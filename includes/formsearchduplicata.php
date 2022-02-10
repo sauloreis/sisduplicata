@@ -6,6 +6,9 @@
  
 
 <div class="container">
+			<nav class="navbar navbar-light d-flex flex-row-reverse bd-highlight mb-3">
+				<a class="navbar-brand btn btn-light" href="sair.php" role="button" >Sair</a>
+			</nav>
 
 
 				<div class="row mb-4 ">
