@@ -9,6 +9,10 @@
     <div class="container">
 				
       <form class="form-signin" method="POST" action="valida.php">
+		  <figure class="figure mb-4">
+		  <br> <img src="imagens/imagem.png" width="300px" class="img-fluid figure-img"></br>
+		  </figure>
+	 
 				<div class="Erro">
 				  						
 				
@@ -35,7 +39,7 @@
 						
 				</div>
 
-			<h2 class="form-signin-heading">Área Restrita</h2>
+			<h4 class="form-signin-heading">Área Restrita</h4>
 			
 			<label for="inputEmail" class="sr-only">Email</label>
 			<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" >
@@ -44,8 +48,9 @@
 			<input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" >
 			
 			<button class="btn btn-lg btn-danger btn-block" type="submit">Acessar</button>
-		
-			<br> <img src="imagens/imagem.png" width="300px"></br>
+			<p class="d-flex mt-3 justify-content-center ">ou</p>
+			<a class="d-flex mt-3 justify-content-center " href="cadastro.php"  >Cadastre-se</a>
+			
       </form>
 	  
 		<p class="text-center text-success">
