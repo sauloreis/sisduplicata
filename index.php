@@ -49,7 +49,7 @@
 			
 			<button class="btn btn-lg btn-danger btn-block" type="submit">Acessar</button>
 			<p class="d-flex mt-3 justify-content-center ">ou</p>
-			<a class="d-flex mt-3 justify-content-center " href="cadastro.php"  >Cadastrar-se</a>
+			<a class="d-flex mt-3 justify-content-center " href="cadastro.php"  >Cadastre-se</a>
 			
       </form>
 	  

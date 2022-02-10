@@ -21,6 +21,11 @@
 
         <h4 class="form-signin-heading p-4 d-flex justify-content-center">Cadastrar-se</h4>
         
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                    <label for="nome">Matricula</label>
+                    <input type="text" class="form-control" name="matricula" id="matricula" placeholder="Matricula">
+            </div>
             
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -29,12 +34,12 @@
             </div>
              
             <div class="form-group col-md-6">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                <label for="username">Login</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Login">
                 <div id="user_exist"></div>
             </div>
             <div class="form-group col-md-6">
-                <label for="email">Email</label>
+                <label for="email">E-mail</label>
                  <input type="email" class="form-control" name="email"id="email">
                  <div id="email_exist" ></div>    
             </div>
@@ -50,12 +55,12 @@
                 <input type="text" class="form-control" id="setor" name="setor">
                 </div>
                 <div class="form-group col-md-4">
-                <label for="inputState">nivel</label>
-                <select id="inputState" class="form-control" name="nivel">
+                <label for="inputState">Diretoria</label>
+                <select id="inputState" class="form-control" name="Diretoria">
                     <option selected>Escolha</option>
-                    <option value='1'>nivel1</option>
-                    <option value='2'>nivel2</option>
-                    <option value='3'>nivel3</option>
+                    <option value='1'>Operacional</option>
+                    <option value='2'>Estrategica</option>
+                    <option value='3'>Comercial</option>
                 </select>
                 </div>
                 
@@ -79,7 +84,7 @@
              <input type="hidden" value="<?=$_SESSION['token']?>" name="token" id="token">
             <div class="d-flex d-flex justify-content-center">
 
-            <button class="btn btn-primary" id="cadastrar">Sign in</button>
+            <button class="btn btn-primary" id="cadastrar">Cadastrar</button>
             <p class="d-flex ml-2 mt-3  align-items-center ">ou</p>
 			<a class="d-flex ml-2  align-items-center " href="index.php"  >Faça login</a>
 
