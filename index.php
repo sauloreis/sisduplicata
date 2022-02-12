@@ -1,52 +1,52 @@
 <?php
-session_start();
-
-?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-
-	<?php
+	session_start();
+	//titulo da pagina	
 	$title = 'Grupo 4 Mares - Login';
-	require_once('includes/head.php');
-	?>
+	//chamando o cabeçalho html
+  	require_once('includes/head.php');
+  
+?>
+    <div class="container">
+				
+      <form class="form-signin" method="POST" action="valida.php">
+		  <figure class="figure mb-4">
+		  <br> <img src="imagens/imagem.png" width="300px" class="img-fluid figure-img"></br>
+		  </figure>
+	 
+				<div class="Erro">
+				  						
+				
+						<?php 
 
-</head>
+						if(isset($_SESSION['error'])){
+								
+							echo "<div class='alert alert-danger' role='alert'>";						
+							
+									echo isset($_SESSION['error']['campvazio'])?$_SESSION['error']['campvazio']:'';
+									echo isset($_SESSION['error']['loginErro'])?$_SESSION['error']['loginErro']:'' ;
+									echo isset($_SESSION['error']['notAuthorized'])?$_SESSION['error']['notAuthorized']:'' ;
 
-<body>
-	<div class="container">
+									unset(
+										$_SESSION['error']										
+									);
+									
+							echo"</div>";
+						}
+							
+							
+						?>
+					
+						
+				</div>
 
-		<form class="form-signin" method="POST" action="valida.php">
-			<div class="Erro">
-				<p class="text-center text-danger">
-					<?php
-
-					echo isset($_SESSION['msgUserNotAutorized']) ? $_SESSION['msgUserNotAutorized'] : '';
-					echo isset($_SESSION['campvazio']) ? $_SESSION['campvazio'] : '';
-					echo isset($_SESSION['loginErro']) ? $_SESSION['loginErro'] : '';
-
-
-					unset(
-						$_SESSION['loginErro'],
-						$_SESSION['campvazio'],
-						$_SESSION['msgUserNotAutorized']
-					);
-
-
-					?>
-				</p>
-
-			</div>
-
-			<h2 class="form-signin-heading">Área Restrita</h2>
-
+			<h4 class="form-signin-heading">Área Restrita</h4>
+			
 			<label for="inputEmail" class="sr-only">Email</label>
-			<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email">
-
+			<input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" >
+			
 			<label for="inputPassword" class="sr-only">Senha</label>
-			<input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha">
-
+			<input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" >
+			
 			<button class="btn btn-lg btn-danger btn-block" type="submit">Acessar</button>
 			<p class="d-flex mt-3 justify-content-center ">ou</p>
 			<a class="d-flex mt-3 justify-content-center " href="cadastro.php"  >Cadastre-se</a>
@@ -54,38 +54,16 @@ session_start();
       </form>
 	  
 		<p class="text-center text-success">
-			<?php
-			if (isset($_SESSION['logindeslogado'])) {
+			<?php 
+			if(isset($_SESSION['logindeslogado'])){
 				echo $_SESSION['logindeslogado'];
 				unset($_SESSION['logindeslogado']);
 			}
 			?>
 		</p>
-	</div> <!-- /container -->
+    </div> <!-- /container -->
 
 
-	<!-- footer -->
-	<footer class="footer text-center">
-
-		<?php require_once('includes/footer.php'); ?>
-
-	</footer><!-- End footer -->
-	<script src="assets/plugins/jquery/dist/jquery.min.js"></script>
-	<!-- Bootstrap tether Core JavaScript -->
-	<script src="assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/app-style-switcher.js"></script>
-	<!--Wave Effects -->
-	<script src="js/waves.js"></script>
-	<!--Menu sidebar -->
-	<script src="js/sidebarmenu.js"></script>
-	<!--Custom JavaScript -->
-	<script src="js/custom.js"></script>
-	<!--This page JavaScript -->
-	<!--flot chart-->
-	<script src="assets/plugins/flot/jquery.flot.js"></script>
-	<script src="assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-	<script src="js/pages/dashboards/dashboard1.js"></script>
-
-</body>
-
-</html>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  
+  <?php //require_once('includes/footer.php');?>
