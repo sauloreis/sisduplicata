@@ -10,6 +10,10 @@ body{
 	
 }
 
+.clear{
+  clear: both;
+}
+
 table{
 	font-size: 10pt;
 }
