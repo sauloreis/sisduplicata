@@ -55,7 +55,7 @@
                 <input type="text" class="form-control" id="setor" name="setor">
                 </div>
                 <div class="form-group col-md-4">
-                <label for="inputState">Diretoria</label>
+                <label for="inputState">NIVEIS_ACESSO</label>
                 <select id="inputState" class="form-control" name="Diretoria">
                     <option selected>Escolha</option>
                     <option value='1'>Operacional</option>
