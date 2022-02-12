@@ -6,9 +6,8 @@ $title = 'Pesquisar Duplicata';
 
 require_once ('Duplicata.php');
 
-//usuario de teste 
-$_SESSION['usuarioId']=1;
-$_SESSION['usuarioEmail']='helenilson';
+
+
 
 if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
@@ -18,23 +17,21 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
     	$duplicata = new Duplicata();
     	$duplicata = $duplicata->searchDuplicata($_POST);    	
 
-    	$res = $duplicata;
-
-		
+    	$res = $duplicata;		
 
 	}
 
-	
 
-	//chama o formulario que procura a duplicata em html e o inicio da tabela 
+
+	//chama o formulario de procura da duplicata  em html e o inicio da tabela<table> 
 	require_once("includes/formsearchduplicata.php");
 
 	//limpado campos de erro
-	if(isset($_SESSION['erro'])){
+	if(isset($_SESSION['error'])){
 		
-		unset($_SESSION['erro']['campoVazio']);
-		unset($_SESSION['erro']['somenteNumber']);
-		unset($_SESSION['erro']['naoEcontrado']);
+		unset($_SESSION['error']['campoVazio']);
+		unset($_SESSION['error']['somenteNumber']);
+		unset($_SESSION['error']['naoEcontrado']);
 		
 	}    
 	var_dump($res);
@@ -90,9 +87,8 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
         require_once("includes/formupdatedata.php");
 
 } else {
-		$_SESSION['msgUserNotAutorized']= "Crie uma conta ou faça o login";
-     header("location: index.php");
-        
+		$_SESSION['error']['notAuthorized']= "Crie uma conta ou faça o login";
+     	header("location: index.php");        
     die;
 
  }

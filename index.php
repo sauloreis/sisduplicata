@@ -48,10 +48,11 @@ session_start();
 			<input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha">
 
 			<button class="btn btn-lg btn-danger btn-block" type="submit">Acessar</button>
-
-			<br> <img src="imagens/imagem.png" width="300px"></br>
-		</form>
-
+			<p class="d-flex mt-3 justify-content-center ">ou</p>
+			<a class="d-flex mt-3 justify-content-center " href="cadastro.php"  >Cadastre-se</a>
+			
+      </form>
+	  
 		<p class="text-center text-success">
 			<?php
 			if (isset($_SESSION['logindeslogado'])) {
