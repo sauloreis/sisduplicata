@@ -3,7 +3,7 @@ session_start();
 
 //informção do head
 $title = 'Pesquisar Duplicata';
-require_once('includes/head.php');
+
 require_once ('Duplicata.php');
 
 //usuario de teste 
@@ -37,7 +37,7 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 		unset($_SESSION['erro']['naoEcontrado']);
 		
 	}    
-
+	var_dump($res);
     if (isset($res)) { 
     	
 		
@@ -97,5 +97,5 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
  }
 
-require_once("includes/footer.php");
+
 

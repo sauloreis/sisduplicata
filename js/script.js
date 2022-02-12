@@ -46,9 +46,8 @@ $(document).ready(function(){
             url:'classes/procurarDuplicata.php',
             method:'post',
             data:$('#atualizarData').serialize(),
-            success: function(data){              
-                
-                
+            success: function(data){ 
+                                             
                 location.reload();
                 $('#alertBalon').removeClass('fade');
                 $('#alertBalon').addClass('show');
@@ -56,6 +55,39 @@ $(document).ready(function(){
             }
         });
     }
+
+    // carregar paginas atraves do menu
+
+    
+    $('#searchduplicata').submit(function(){return false; });
+    
+
+    $("#buttonSearch").click(function(){
+        $.ajax({
+            url:'classes/procurarDuplicata.php',
+            method:'post',  
+            data:$('#searchduplicata').serialize(),
+            success: function(data){
+                console.log(data);
+                $('.loadPG').load("searchDuplicata.php");
+                   
+                                 
+                //location.reload();
+                // $('#alertBalon').removeClass('fade');
+                // $('#alertBalon').addClass('show');
+                
+            }
+        });
+    });
+    // Página de cadastro de perfumes
+    $("#duplicata").click(function () {
+        
+        $('.loadPG').load("searchDuplicata.php");
+        // $('.container-caixa').hide();
+         return false;
+
+    });
+    
 
 });//ready
 

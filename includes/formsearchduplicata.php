@@ -3,9 +3,8 @@
 // separei para nao suja muito o php 
 ?>
 	
- 
+	<script src="js/script.js"></script>
 
-<div class="container">
 
 
 				<div class="row mb-4 ">
@@ -13,20 +12,20 @@
 						<div class="row">
 							<div class="col-md-4 ">
 								<label for="duplicata">Duplicata</label>
-								<input type="text" name="duplicata" class="form-control" id="duplicata" placeholder="Duplicata">
+								<input type="text" name="DUPLIC" class="form-control" id="duplicata" placeholder="Duplicata">
 							</div>
 							<div class="col-md-2  ">
 								<label for="prestacao">Prestação</label>
-								<input type="text" name="prestacao" class="form-control" id="prestacao" placeholder="Prestação">
+								<input type="text" name="PREST" class="form-control" id="prestacao" placeholder="Prestação">
 							</div>
 
 								<div class="col-md-4 ">
 									<label for="codCliente">Cod Cliente</label>
-									<input type="text" name="codCliente" class="form-control" id="codCliente" placeholder="Codigo do Cliente">
+									<input type="text" name="CODCLI" class="form-control" id="codCliente" placeholder="Codigo do Cliente">
 								</div>
 
-								<div class="col-sm-2 buton pt-4 ">
-								<input type="submit" class="btn btn-primary " name='buttonSearch' value="Procurar">
+								<div class="col-sm-2 buton pt-3 ">
+								<button class="btn btn-primary " name='buttonSearch' id="buttonSearch" value="Procurar">Procurar</button>
 							</div>
 						</div>		  
 

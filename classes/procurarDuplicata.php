@@ -1,7 +1,7 @@
 <?php
 require_once "../ConOracle.php";
 
-print_r($_POST);
+
 if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
 
     $duplicata =isset($_POST['DUPLIC'])?filter_var($_POST['DUPLIC'],FILTER_SANITIZE_NUMBER_INT):NULL;
@@ -16,15 +16,47 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
        $stid = oci_parse($link, $sql); 
        oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
        $res  = $stid;
+       
+       if (isset($res)) { 
+    	
+		
+		while($r = oci_fetch_array($res,OCI_RETURN_NULLS+OCI_ASSOC) ){
+			
+			$row[]=$r;
+            
+        	
+					
+        	 foreach ($r as $key => $value) {        	 	
+                echo'<pre>';
+                echo($key.'='.$value);
+                echo'</pre>';
+        	 	
+				        	 	
+
+        	  }
+        	  
+
+				
+			
+	
+        } // fechamento do while
+        echo'<pre>';
+        print_r($row);
+        echo'</pre>';
         
-        return $res;
+        
+    }else{
+    	//header(location: index.php);
+
+    } //fechamento do if
+        
     }else{
         $_SESSION['erro']['somenteNumber']='somente numero!';
     }
 
     
 }else{
-
+    echo("Entrando no else");
     $_SESSION['erro']['campoVazio']='Preencha pelo menos um campo CODCLIENTE ou DUPLICATA!';
 
 }
