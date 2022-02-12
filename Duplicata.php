@@ -52,12 +52,12 @@ class Duplicata
 		}
 	}
 
-	public function  alterarDataPagamento($post){
+	public function  AlterarDataPagamento($post){
 		
 		$duplicata =isset($post['DUPLIC'])?filter_var($post['DUPLIC'],FILTER_SANITIZE_NUMBER_INT):NULL;
 		$prestacao =isset($post['PREST'])?filter_var($post['PREST'],FILTER_SANITIZE_NUMBER_INT):NULL;
 		$codCliente=isset($post['CODCLI'])?filter_var($post['CODCLI'],FILTER_SANITIZE_NUMBER_INT):NULL;
-		$DataPagamento = isset($post['alterardtaPagamento'])?$post['alterardtaPagamento']:0000-00-00;
+		$DataPagamento = isset($post['AlterardtaPagamento'])?$post['AlterardtaPagamento']:0000-00-00;
 		
 		$date = new DateTime($DataPagamento);
 		$dataPagamento = $date->format('d-m-Y');
