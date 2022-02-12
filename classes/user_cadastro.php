@@ -3,6 +3,9 @@
 if (isset($_POST['token'])) {
     require_once "../ConOracle.php";
 
+    //var_dump($_POST);
+
+    $matricula=isset($_POST['matricula'])?filter_var($_POST['matricula'],FILTER_SANITIZE_NUMBER_INT):"";
     $nome=isset($_POST['nome'])?filter_var($_POST['nome'],FILTER_SANITIZE_STRING):"";
     $username=isset($_POST['username'])?filter_var($_POST['username'],FILTER_SANITIZE_STRING):"";
     $email=isset($_POST['email'])?filter_var($_POST['email'],FILTER_SANITIZE_EMAIL):"";
@@ -11,7 +14,8 @@ if (isset($_POST['token'])) {
     $nivel=isset($_POST['nivel'])?filter_var($_POST['nivel'],FILTER_SANITIZE_NUMBER_INT):"";
     $password=md5($password);
 
-    $sql = "Insert into G4M_USER (ID,MATRICULA,NOME,LOGIN,EMAIL,SETOR,SENHA,DIRETORIA,NIVEIS_ACESSO) values ('1','1','Saulo Reis','Saulo.antao','saulo.antao@grupo4mares.com.br','TI','1234','estrategico','1'); ";
+    $sql = "Insert into G4M_USER (MATRICULA,NOME,LOGIN,EMAIL,SETOR,SENHA,DIRETORIA,NIVEIS_ACESSO)"; 
+    $sql .= " values ('{$matricula}','{$nome}','{$username}','s{$email}','{$setor}','{$password}','{$nivel}'), '{$nivel}')"; 
         $stid = oci_parse($link, $sql); 
       
         oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
