@@ -2,3 +2,4 @@
 dados/
 configOra.ini
 ConOracle.php
+/vendor/

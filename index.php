@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+var_dump($_GET['url']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -70,21 +71,21 @@ session_start();
 		<?php require_once('includes/footer.php'); ?>
 
 	</footer><!-- End footer -->
-	<script src="assets/plugins/jquery/dist/jquery.min.js"></script>
+	<script src="<?php echo(PATH);?>assets/plugins/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap tether Core JavaScript -->
-	<script src="assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/app-style-switcher.js"></script>
+	<script src="<?php echo(PATH);?>assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="<?php echo(PATH);?>js/app-style-switcher.js"></script>
 	<!--Wave Effects -->
-	<script src="js/waves.js"></script>
+	<script src="<?php echo(PATH);?>js/waves.js"></script>
 	<!--Menu sidebar -->
-	<script src="js/sidebarmenu.js"></script>
+	<script src="<?php echo(PATH);?>js/sidebarmenu.js"></script>
 	<!--Custom JavaScript -->
-	<script src="js/custom.js"></script>
+	<script src="<?php echo(PATH);?>js/custom.js"></script>
 	<!--This page JavaScript -->
 	<!--flot chart-->
-	<script src="assets/plugins/flot/jquery.flot.js"></script>
-	<script src="assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-	<script src="js/pages/dashboards/dashboard1.js"></script>
+	<script src="<?php echo(PATH);?>assets/plugins/flot/jquery.flot.js"></script>
+	<script src="<?php echo(PATH);?>assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+	<script src="<?php echo(PATH);?>js/pages/dashboards/dashboard1.js"></script>
 
 </body>
 

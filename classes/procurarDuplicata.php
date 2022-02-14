@@ -1,16 +1,7 @@
 <?php
-session_start();
 require_once "../ConOracle.php";
 
-<<<<<<< HEAD
 
-=======
-if (!isset($_SESSION['usuarioId']) and !isset($_SESSION['usuarioEmail'])) {
-    $_SESSION['error']['notAuthorized'] = "faça o login ou crie uma conta";
-		header("Location: ../index.php");
-        die;
-}
->>>>>>> 942956ddd220abfaf7d626afc05988c29957373e
 if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
 
     $duplicata =isset($_POST['DUPLIC'])?filter_var($_POST['DUPLIC'],FILTER_SANITIZE_NUMBER_INT):NULL;
@@ -38,6 +29,7 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
         	 foreach ($r as $key => $value) {        	 	
                 echo'<pre>';
                 echo($key.'='.$value);
+                
                 echo'</pre>';
         	 	
 				        	 	
@@ -60,17 +52,12 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
     } //fechamento do if
         
     }else{
-        $_SESSION['error']['somenteNumber']='somente numero!';
+        $_SESSION['erro']['somenteNumber']='somente numero!';
     }
 
     
 }else{
-<<<<<<< HEAD
     echo("Entrando no else");
     $_SESSION['erro']['campoVazio']='Preencha pelo menos um campo CODCLIENTE ou DUPLICATA!';
-=======
-
-    $_SESSION['error']['campoVazio']='Preencha pelo menos um campo CODCLIENTE ou DUPLICATA!';
->>>>>>> 942956ddd220abfaf7d626afc05988c29957373e
 
 }
