@@ -1,6 +1,14 @@
 <?php
-	session_start();
-	//titulo da pagina	
+session_start();
+
+var_dump($_GET['url']);
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+	<?php
 	$title = 'Grupo 4 Mares - Login';
 	//chamando o cabeçalho html
   	require_once('includes/head.php');
@@ -61,7 +69,30 @@
 			}
 			?>
 		</p>
-    </div> <!-- /container -->
+	</div> <!-- /container -->
+
+
+	<!-- footer -->
+	<footer class="footer text-center">
+
+		<?php require_once('includes/footer.php'); ?>
+
+	</footer><!-- End footer -->
+	<script src="<?php echo(PATH);?>assets/plugins/jquery/dist/jquery.min.js"></script>
+	<!-- Bootstrap tether Core JavaScript -->
+	<script src="<?php echo(PATH);?>assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="<?php echo(PATH);?>js/app-style-switcher.js"></script>
+	<!--Wave Effects -->
+	<script src="<?php echo(PATH);?>js/waves.js"></script>
+	<!--Menu sidebar -->
+	<script src="<?php echo(PATH);?>js/sidebarmenu.js"></script>
+	<!--Custom JavaScript -->
+	<script src="<?php echo(PATH);?>js/custom.js"></script>
+	<!--This page JavaScript -->
+	<!--flot chart-->
+	<script src="<?php echo(PATH);?>assets/plugins/flot/jquery.flot.js"></script>
+	<script src="<?php echo(PATH);?>assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+	<script src="<?php echo(PATH);?>js/pages/dashboards/dashboard1.js"></script>
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
