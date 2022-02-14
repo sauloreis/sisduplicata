@@ -12,11 +12,11 @@ class Duplicata
 	{			
 
 
-		if(isset($post['buttonSearch']) and !empty($post['DUPLIC']) || !empty($post['CODCLI'])){
+		if(isset($post['buttonSearch']) and !empty($post['duplicata']) || !empty($post['codCliente'])){
 			
-			$duplicata =isset($post['DUPLIC'])?filter_var($post['DUPLIC'],FILTER_SANITIZE_NUMBER_INT):NULL;
-			$prestacao =isset($post['PREST'])?filter_var($post['PREST'],FILTER_SANITIZE_NUMBER_INT):NULL;
-			$codCliente=isset($post['CODCLI'])?filter_var($post['CODCLI'],FILTER_SANITIZE_NUMBER_INT):NULL;
+			$duplicata =isset($post['duplicata'])?filter_var($post['duplicata'],FILTER_SANITIZE_NUMBER_INT):NULL;
+			$prestacao =isset($post['prestacao'])?filter_var($post['prestacao'],FILTER_SANITIZE_NUMBER_INT):NULL;
+			$codCliente=isset($post['codCliente'])?filter_var($post['codCliente'],FILTER_SANITIZE_NUMBER_INT):NULL;
 			if($duplicata != NULL || $codCliente != NULL){
 				if($duplicata != '' && $codCliente != '' && $prestacao != ""){
 					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
