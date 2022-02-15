@@ -3,10 +3,12 @@ session_start();
 
 //informção do head
 $title = 'Pesquisar Duplicata';
-require_once('includes/head.php');
+// require_once('includes/head.php');
 require_once ('Duplicata.php');
 
-
+$_SESSION['usuarioId']='1';
+$_SESSION['usuarioEmail']='helenilsoon@gmail.com';
+$_SESSION['usuario']='helenilson';
 
 
 if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
@@ -35,6 +37,7 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 		
 	}    
 	//se existir um resultado da pesquisa  entra no if e percorre cada linha da pesquisa 
+	var_dump($res);
     if (isset($res)) { 
     	
 		
@@ -93,5 +96,7 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 
  }
 
-require_once("includes/footer.php");
+ 
+?>
+<script src="js/form.js"></script>
 

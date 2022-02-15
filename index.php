@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-var_dump($_GET['url']);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

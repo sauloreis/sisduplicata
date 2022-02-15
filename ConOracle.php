@@ -5,8 +5,8 @@
 class ConOracle
 {
 	public function conectar(){
-
-		$config = "configOraLocal.ini"; //configuração local
+		$config = "config.ini"; //configuração local nilson
+		//$config = "configOraLocal.ini"; //configuração local
 		//$config = "configOra.ini"; //configuração remoto
 		$configOra =parse_ini_file($config); 
 

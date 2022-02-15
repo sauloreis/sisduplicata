@@ -1,58 +1,4 @@
-function valCheckBox(codClie, codDuplica, prestacao, value) {
-
-    let checkbox = document.querySelector("#checkbox" + value).value;
-    let dataPagamento = document.querySelector("#dtaPagamento");
-    dataPagamento.value = checkbox;
-
-    let codCliente = document.querySelector("[name='CODCLI']");
-    codCliente.value = codClie;
-    let duplicata = document.querySelector("[name='DUPLIC']");
-    duplicata.value = codDuplica;
-    let presta = document.querySelector("[name='PREST']");
-    presta.value = prestacao;
-
-
-}
-
 $(document).ready(function() {
-
-    $("#salvarData").click(function() {
-        if ($('#alterardtaPagamento').val().length > 0) {
-
-
-            $.ajax({
-                url: 'classes/alterarDataPagamento.php',
-                method: 'post',
-                data: $('#atualizarData').serialize(),
-                success: function(data) {
-                    if (data) {
-
-                        atualizarPagina();
-                    } else {
-                        alert("Erro ao atualizar");
-                    }
-                }
-            });
-        } else {
-            alert("campo alterar data não pode ser vazio");
-        }
-    });
-
-    function atualizarPagina() {
-
-        $.ajax({
-            url: 'classes/procurarDuplicata.php',
-            method: 'post',
-            data: $('#atualizarData').serialize(),
-            success: function(data) {
-
-                location.reload();
-                $('#alertBalon').removeClass('fade');
-                $('#alertBalon').addClass('show');
-
-            }
-        });
-    }
 
     //vericando se o username ja existe cadastrado
 
@@ -111,7 +57,7 @@ $(document).ready(function() {
         }
     });
     $('#cadastrar').click(function(event) {
-        let cont = 0
+        let cont = 0;
         $('#formularioCadastro input').each(function() {
             if ($(this).val() == "") {
                 $(this).css({ "border": "1px solid #F00", "padding": "2px" });
@@ -143,32 +89,11 @@ $(document).ready(function() {
 
 
     });
-    $('#searchduplicata').submit(function() { return false; });
 
-
-    $("#buttonSearch").click(function() {
-        $.ajax({
-            url: 'classes/procurarDuplicata.php',
-            method: 'post',
-            data: $('#searchduplicata').serialize(),
-            success: function(data) {
-                console.log(data[[
-                    []
-                ]]);
-                $('.loadPG').load("searchDuplicata.php");
-
-
-                //location.reload();
-                // $('#alertBalon').removeClass('fade');
-                // $('#alertBalon').addClass('show');
-
-            }
-        });
-    });
-    // Página de cadastro de perfumes
+    // carregando as paginas
     $("#duplicata").click(function() {
-
-        $('.loadPG').load("searchDuplicata.php");
+        console.log("Duplicata clicado");
+        $('.loadPG').load("../searchDuplicata.php");
         // $('.container-caixa').hide();
         return false;
 
