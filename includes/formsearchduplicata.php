@@ -5,31 +5,41 @@
 	
  
 
-<div class="container">
-			<nav class="navbar navbar-light d-flex flex-row-reverse bd-highlight mb-3">
-				<a class="navbar-brand btn btn-light" href="sair.php" role="button" >Sair</a>
-			</nav>
+<div class="container mt=4">
+		<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Duplicata</li>
+		</ol>
+		</nav>
 
 
 				<div class="row mb-4 ">
-					<form class="col-md-12"action="searchduplicata.php" method="POST" id="searchduplicata">
+				<div class="alertaSucesso">
+					<div id='alertBalon-erro'class="alert alert-success alert-dismissible" style='display:none' role="alert">
+						<strong id="txtAlert"></strong> 
+						
+						
+					</div>
+				</div>
+					<form class="col-md-12" id="searchduplicata">
 						<div class="row">
 							<div class="col-md-4 ">
-								<label for="duplicata">Duplicata</label>
-								<input type="text" name="duplicata" class="form-control" id="duplicata" placeholder="Duplicata">
+								<label for="codduplicata">Duplicata</label>
+								<input type="text" name="DUPLIC" class="form-control" id="codduplicata" placeholder="Duplicata">
 							</div>
 							<div class="col-md-2  ">
 								<label for="prestacao">Prestação</label>
-								<input type="text" name="prestacao" class="form-control" id="prestacao" placeholder="Prestação">
+								<input type="text" name="PREST" class="form-control" id="prestacao" placeholder="Prestação">
 							</div>
 
 								<div class="col-md-4 ">
 									<label for="codCliente">Cod Cliente</label>
-									<input type="text" name="codCliente" class="form-control" id="codCliente" placeholder="Codigo do Cliente">
+									<input type="text" name="CODCLI" class="form-control" id="codCliente" placeholder="Codigo do Cliente">
 								</div>
 
 								<div class="col-sm-2 buton pt-4 ">
-								<input type="submit" class="btn btn-primary " name='buttonSearch' value="Procurar">
+								<input type="submit" class="btn btn-primary " id="buttonSearch" name='buttonSearch' value="Procurar" >
 							</div>
 						</div>		  
 
