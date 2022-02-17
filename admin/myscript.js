@@ -1,7 +1,17 @@
-$(window).resize(function() {
-    let windowWidth = $(window)[0].innerWidth;
+$(function() {
+    let timer;
+    $(window).resize(function() {
 
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+            location.href = "http://localhost/sistema_de_altera-o_de_data_pagamento/admin/";
+        }, 1000);
+
+        // let windowWidth = $(window)[0].innerWidth;
+
+    });
 });
+
 
 $(document).ready(function() {
     let windowWhidth = $(window)[0].innerWidth;

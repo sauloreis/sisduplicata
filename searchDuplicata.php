@@ -37,7 +37,7 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 		
 	}    
 	//se existir um resultado da pesquisa  entra no if e percorre cada linha da pesquisa 
-	var_dump($res);
+	// var_dump($res);
     if (isset($res)) { 
     	
 		

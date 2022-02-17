@@ -43,7 +43,7 @@
                 </div>
                 <div class="row">
                     <div class=" power col-md-12 d-flex justify-content-end align-items-center"> 
-                    <a href="sair.php"><i class="fa fa-power-off"></i></a>
+                    <a href="/sair"><i class="fa fa-power-off"></i></a>
                  </div>
                 </div>
                 

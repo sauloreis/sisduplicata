@@ -22,35 +22,35 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
        oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
        $res  = $stid;
        
-    //    if (isset($res)) {
+       if (isset($res)) {
 
-	// 	while($r = oci_fetch_array($res,OCI_RETURN_NULLS+OCI_ASSOC) ){
+		while($r = oci_fetch_array($res,OCI_RETURN_NULLS+OCI_ASSOC) ){
 			
-	// 		$row[]=$r;        
+			$row[]=$r;        
         						
-    //     	 foreach ($r as $key => $value) {        	 	
-    //             echo'<pre>';
-    //             echo($key.'='.$value);
+        	//  foreach ($r as $key => $value) {        	 	
+            //     echo'<pre>';
+            //     echo($key.'='.$value);
                 
-    //             echo'</pre>';      	 	
+            //     echo'</pre>';      	 	
 	
-    //     	  }
+        	//   }
         	  
 
 				
 			
 	
-    //     } // fechamento do while
-    //     echo'<pre>';
-    //     print_r($row);
-    //     echo'</pre>';
+        } // fechamento do while
+        echo'<pre>';
+        print_r($row);
+        echo'</pre>';
         
         
-    // }else{
-    // 	//header(location: index.php);
+    }else{
+    	//header(location: index.php);
 
-    // } //fechamento do if
-        // var_dump($res);
+    } //fechamento do if
+       
         return $res;
     }else{
         echo("Entrando no else");
