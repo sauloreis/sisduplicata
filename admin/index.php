@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    $_SESSION['usuario']='helenilson';
+    //$_SESSION['usuario']='helenilson';
 ?>
 <!doctype html>
 <html lang="en">
@@ -54,7 +54,7 @@
             <div class="box-content col-md-9">
                 <div class="row">
                     <div class="menu-top  col-md-12 d-flex justify-content-end align-items-center"> 
-                    <span>Bem vindo <?php echo $_SESSION['usuario'];?></span>
+                    <span>Bem vindo <?php echo $_SESSION['usuarioNome'];?></span>
                     <div class="icon-user"><i class="fas fa-user-circle"></i>
                     </div>
                     </div>
