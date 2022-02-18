@@ -7,40 +7,40 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="Saulo Reis">
-<link rel="icon" href="<?php echo(PATH);?>imagens/favicon.ico">
+<link rel="icon" href="<?php echo(DIR_IMG);?>favicon.ico">
 
 
     <title><?php echo $title ?></title>
 
 <!-- Bootstrap core CSS -->
-<link href="<?php echo(PATH);?>css/bootstrap.min.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>bootstrap.min.css" rel="stylesheet">
 <!-- Font Awesome -->
-<link href="<?php echo(PATH);?>admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <!-- NProgress -->
-<link href="<?php echo(PATH);?>admin/vendors/nprogress/nprogress.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>admin/vendors/nprogress/nprogress.css" rel="stylesheet">
 <!-- iCheck -->
-<link href="<?php echo(PATH);?>admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="<?php echo(PATH);?>css/signin.css" rel="stylesheet">
-<link href="<?php echo(PATH);?>css/style.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>signin.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>style.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="<?php echo(PATH);?>assets/plugins/chartist/dist/chartist.min.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>assets/plugins/chartist/dist/chartist.min.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="<?php echo(PATH);?>css/style.min.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>style.min.css" rel="stylesheet">
 <!-- bootstrap-progressbar -->
-<link href="<?php echo(PATH);?>admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
 <!-- JQVMap -->
-<link href="<?php echo(PATH);?>admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+<link href="<?php echo(DIR_CSS);?>admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
 <!-- bootstrap-daterangepicker -->
-<link href="<?php echo(PATH);?>admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
 <!-- Custom Theme Style -->
-<link href="<?php echo(PATH);?>admin/build/css/custom.min.css" rel="stylesheet">
+<link href="<?php echo(DIR_CSS);?>admin/build/css/custom.min.css" rel="stylesheet">
 
     
-<script src="<?php echo(PATH);?>js/jquery-3.6.0.min.js"></script>
-<script src="<?php echo(PATH);?>js/script.js"></script>
-<script src="<?php echo(PATH);?>js/bootstrap.min.js"></script>
+<script src="<?php echo(DIR_JS);?>jquery-3.6.0.min.js"></script>
+<script src="<?php echo(DIR_JS);?>script.js"></script>
+<script src="<?php echo(DIR_JS);?>bootstrap.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

@@ -1,6 +1,10 @@
 <?php 
     session_start();
-    //$_SESSION['usuario']='helenilson';
+    if (!isset($_SESSION['usuarioId']) and !isset($_SESSION['usuarioEmail'])) {
+            $_SESSION['error']['notAuthorized'] = "faça o login ou crie uma conta";
+        		header("Location: ../index.php");
+                die;
+        }
 ?>
 <!doctype html>
 <html lang="en">
@@ -23,7 +27,7 @@
                 <div class="row menu-main-topo">
                     <div class="logo col-md-10  d-flex justify-content-center align-items-center ">                 
                  
-                  <a class="" href="index.php"><img src="../imagens/logo-grupo4mares-85x28.png" alt=""></a>                  
+                  <a class="" href="index.php"><img src="../assets/img/logo-grupo4mares-85x28.png" alt=""></a>                  
                   
               </div>
               <div class=" col-md-2 close d-flex justify-content-center align-items-center ">
@@ -43,7 +47,7 @@
                 </div>
                 <div class="row">
                     <div class=" power col-md-12 d-flex justify-content-end align-items-center"> 
-                    <a href="/sair"><i class="fa fa-power-off"></i></a>
+                    <a href="sair"><i class="fa fa-power-off"></i></a>
                  </div>
                 </div>
                 
@@ -61,8 +65,8 @@
                 </div>
                     <div class="row col-md-12">
                         <div class="container-content mt-4 col-md-12">   
-                            <div class="loadPG col-md-12">
-
+                            <div  class="loadPG col-md-12">
+                            <?php // aqui carrega a duplicata?>
                             </div>
                      </div>
             </div>
@@ -76,10 +80,10 @@
 
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
 
     <script src="myscript.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
 
