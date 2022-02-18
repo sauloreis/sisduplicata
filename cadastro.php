@@ -86,7 +86,7 @@
 
             <button class="btn btn-primary" id="cadastrar">Cadastrar</button>
             <p class="d-flex ml-2 mt-3  align-items-center ">ou</p>
-			<a class="d-flex ml-2  align-items-center " href="index.php"  >Faça login</a>
+			<a class="d-flex ml-2  align-items-center " href="login"  >Faça login</a>
 
             </div>
            
