@@ -1,6 +1,12 @@
 <?php
+/*
+*
+*   conecta no banco de dados e  retorna o numero de linhas afetadas
+*
+*/
 
-require_once "../ConOracle.php";
+
+require_once("../config/ConOracle.php");
 // acesso somente para que tiver atuorização
 // if (!isset($_SESSION['usuarioId']) and !isset($_SESSION['usuarioEmail'])) {
 //     $_SESSION['error']['notAuthorized'] = "faça o login ou crie uma conta";
@@ -15,14 +21,16 @@ if(isset($_POST['CODCLI']) ){
     $prestacao =isset($_POST['PREST'])?filter_var($_POST['PREST'],FILTER_SANITIZE_NUMBER_INT):NULL;
     $codCliente=isset($_POST['CODCLI'])?filter_var($_POST['CODCLI'],FILTER_SANITIZE_NUMBER_INT):NULL;
     $DataPagamento = isset($_POST['alterardtaPagamento'])?$_POST['alterardtaPagamento']:0000-00-00;
+    var_dump($DataPagamento);
+    $date = date_create($DataPagamento);
+    $dataPagamento = date_format($date,'Y/m/d');
+    echo"<br>";
+    var_dump($dataPagamento);
     
-    $date = new DateTime($DataPagamento);
-    $dataPagamento = $date->format('d-m-Y');
-  
     
-    $sql = "update PCPREST  set DTPAG='$dataPagamento' Where DUPLIC = '$duplicata' and PREST= '$prestacao' and CODCLI='$codCliente'";
+    $sql = "update PCPREST  set DTPAG= TO_DATE('$dataPagamento','YYYY-MM-DD') Where DUPLIC = '$duplicata' and PREST= '$prestacao' and CODCLI='$codCliente'";
     
-   
+   var_dump($sql);
     $con = new ConOracle();
 	 $link = $con->conectar();
 	$stid = oci_parse($link, $sql); 
@@ -45,4 +53,6 @@ if(isset($_POST['CODCLI']) ){
     
 
 
+}else{
+    echo('AterarDataPagamento fala : Não tem nada vindo dai doido!');
 }

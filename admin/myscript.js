@@ -1,4 +1,5 @@
 $(function() {
+
     let timer;
     $(window).resize(function() {
 
@@ -10,6 +11,12 @@ $(function() {
         // let windowWidth = $(window)[0].innerWidth;
 
     });
+    
+
+
+
+
+
 });
 
 

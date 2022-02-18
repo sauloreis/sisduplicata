@@ -17,6 +17,15 @@
 
 <div class="container">
     <div class="d-flex mt-3 justify-content-center ">
+    <div class="row mb-4 ">
+		<div class="alertaSucesso">
+			<div id='alertBalon-erro' class="alert alert-success alert-dismissible" style='display:none' role="alert">
+				<strong id="txtAlert"></strong>
+
+
+			</div>
+		</div>
+	</div>
         <form class="col-sm-6 border p-3 rounded  " id="formularioCadastro">
 
         <h4 class="form-signin-heading p-4 d-flex justify-content-center">Cadastrar-se</h4>
@@ -54,13 +63,14 @@
                 <label for="setor">Setor</label>
                 <input type="text" class="form-control" id="setor" name="setor">
                 </div>
-                <div class="form-group col-md-4">
-                <label for="inputState">NIVEIS_ACESSO</label>
+                <div class="form-group col-md-6">
+                <label for="inputState">Diretoria</label>
                 <select id="inputState" class="form-control" name="Diretoria">
                     <option selected>Escolha</option>
-                    <option value='1'>Operacional</option>
+                    <option value='1'>Administrador</option>
                     <option value='2'>Estrategica</option>
                     <option value='3'>Comercial</option>
+                    <option value='4'>Operacional</option>
                 </select>
                 </div>
                 
@@ -91,5 +101,5 @@
             </div>
            
         </form>
-     </div>
-</div>
+     </div><!-- end div d-flex-->
+</div> <!-- end container -->

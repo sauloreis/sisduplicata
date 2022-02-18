@@ -1,6 +1,6 @@
 <?php
 
-require_once "../ConOracle.php";
+
 // acesso somente para que tiver atuorização
 // if (!isset($_SESSION['usuarioId']) and !isset($_SESSION['usuarioEmail'])) {
 //     $_SESSION['error']['notAuthorized'] = "faça o login ou crie uma conta";
@@ -10,7 +10,7 @@ require_once "../ConOracle.php";
 
 
 if (isset($_POST['token'])) {
-    require_once "../ConOracle.php";
+    require_once("../config/ConOracle.php");
 
   //  Error_reporting(0);
 
@@ -18,13 +18,13 @@ if (isset($_POST['token'])) {
     $usuario = isset($_POST['username']) ? filter_var($_POST['username'], FILTER_SANITIZE_STRING): "";
     
 
-    $con = new ConOracle();
+     $con = new ConOracle();
 	 $link = $con->conectar();
 	
 
     if ($emailUser != "") {
 
-        $sql = "SELECT EMAIL FROM G4M_USER where EMAIL= '$emailUser' ";
+        $sql = "SELECT EMAIL FROM g4m_user_producao where EMAIL= '$emailUser' ";
         $stid = oci_parse($link, $sql); 
       
         oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
@@ -36,17 +36,19 @@ if (isset($_POST['token'])) {
                 echo "<div class='alert alert-danger my-2' role='alert'>";
                 echo " e-mail já cadastrado";
                 echo "</div>";
+                
             }else{
                 echo "<div class='alert alert-success my-2' role='alert'>";
                 echo  " e-mail disponível";
                 echo "</div>";
+               
             }
         
     }
 
     if ($usuario != "") {
 
-        $sql = "SELECT LOGIN FROM G4M_USER where LOGIN= '$usuario' ";
+        $sql = "SELECT LOGIN FROM g4m_user_producao where LOGIN= '$usuario' ";
         $stid = oci_parse($link, $sql); 
       
         oci_execute($stid,OCI_COMMIT_ON_SUCCESS);

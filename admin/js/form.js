@@ -1,10 +1,11 @@
 function valCheckBox(codClie, codDuplica, prestacao, value) {
-
+    
+    
     let checkbox = document.querySelector("#checkbox" + value).value;
     let dataPagamento = document.querySelector("#dtaPagamento");
-    let codCliente = document.querySelector("[name='CODCLI']");
-    let duplicata = document.querySelector("[name='DUPLIC']");
-    let presta = document.querySelector("[name='PREST']");
+    let codCliente = document.querySelector('#CODCLI');
+    let duplicata = document.querySelector('#DUPLIC');
+    let presta = document.querySelector('#PREST');
 
     dataPagamento.value = checkbox;
     codCliente.value = codClie;
@@ -17,15 +18,21 @@ function valCheckBox(codClie, codDuplica, prestacao, value) {
 $(document).ready(function() {
 
     $("#salvarData").click(function() {
+        
         if ($('#alterardtaPagamento').val().length > 0) {
-
+            let codCliente = $('#CODCLI').val();
+            let prestacao = $('#PREST').val();
+            let codDuplica = $('#DUPLIC').val();
+            
+           
             $.ajax({
-                url: 'classes/alterarDataPagamento.php',
+                url: '../classes/alterarDataPagamento.php',
                 method: 'post',
                 data: $('#atualizarData').serialize(),
                 success: function(data) {
+                     console.log(data);
                     if (data) {
-                        atualizarPagina();
+                       atualizarPagina(codDuplica, prestacao,codCliente);
                     } else {
                         alert("Erro ao atualizar");
                     }
@@ -36,18 +43,27 @@ $(document).ready(function() {
             alert("campo alterar data não pode ser vazio");
         }
     });
-
-    function atualizarPagina() {
-
+    
+    function atualizarPagina(duplicata,prestacao,codcliente) {
+            console.log('duplicata ='+duplicata+"<br>");
+            console.log('prestação ='+prestacao+"<br>");
+            console.log('codigo do cliente ='+codcliente+"<br>");
+            
         $.ajax({
-            url: 'classes/procurarDuplicata.php',
-            method: 'post',
-            data: $('#atualizarData').serialize(),
-            success: function(data) {
+                url: '../classes/procurarDuplicata.php',
+                method: 'post',
+                data: {DUPLIC:duplicata,PREST:prestacao, CODCLI:codcliente},
+                success: function(data) {
+                   
+                    $('.loadPG').html(data).fadeIn();
 
-                location.reload();
+                // location.reload();
                 $('#alertBalon').removeClass('fade');
                 $('#alertBalon').addClass('show');
+                setTimeout(function(){
+                    $('#alertBalon').removeClass('show');
+                $('#alertBalon').addClass('fade');
+                },4000);
 
             }
         });
@@ -63,9 +79,9 @@ $(document).ready(function() {
                 method: 'post',
                 data: $('#searchduplicata').serialize(),
                 success: function(data) {
-
-                    $('.loadPG').load("../searchDuplicata.php", data);
-                    console.log(data);
+                   
+                    $('.loadPG').html(data).fadeIn();
+                    
 
                     //location.reload();
                     // $('#alertBalon').removeClass('fade');

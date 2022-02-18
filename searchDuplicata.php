@@ -6,9 +6,9 @@ $title = 'Pesquisar Duplicata';
 // require_once('includes/head.php');
 require_once ('Duplicata.php');
 
-$_SESSION['usuarioId']='1';
-$_SESSION['usuarioEmail']='helenilsoon@gmail.com';
-$_SESSION['usuario']='helenilson';
+// $_SESSION['usuarioId']='1';
+// $_SESSION['usuarioEmail']='helenilsoon@gmail.com';
+// $_SESSION['usuario']='helenilson';
 
 
 if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
@@ -38,10 +38,10 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 	}    
 	//se existir um resultado da pesquisa  entra no if e percorre cada linha da pesquisa 
 	// var_dump($res);
-    if (isset($res)) { 
+    if (isset($stid)) { 
     	
 		
-		while($r = oci_fetch_array($res,OCI_RETURN_NULLS+OCI_ASSOC) ){
+		while($r = oci_fetch_array($stid,OCI_RETURN_NULLS+OCI_ASSOC) ){
 			
 			$cod = "{$r['CODCLI']}{$r['DUPLIC']}{$r['PREST']}";
 			$codCli =$r['CODCLI'] ;

@@ -5,9 +5,9 @@
 class ConOracle
 {
 	public function conectar(){
-		$config = "config.ini"; //configuração local nilson
-		//$config = "configOraLocal.ini"; //configuração local
-		//$config = "configOra.ini"; //configuração remoto
+		//$config = "config.ini"; //configuração local nilson
+		$config = "configOraLocal.ini"; //configuração local TESTE
+		//$config = "configOra.ini"; //configuração remoto PRODUÇÃO
 		$configOra =parse_ini_file($config); 
 
 		$oraConexao = oci_connect($configOra['ORACLE_USER'],

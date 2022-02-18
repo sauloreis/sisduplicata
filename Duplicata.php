@@ -2,7 +2,7 @@
 // Class Duplicata 
 // 
 
-require_once "ConOracle.php";
+require_once("config/ConOracle.php");
 
 class Duplicata
 {
@@ -13,10 +13,11 @@ class Duplicata
 
 
 		if(isset($post['buttonSearch']) and !empty($post['duplicata']) || !empty($post['codCliente'])){
-			
-			$duplicata =isset($post['duplicata'])?filter_var($post['duplicata'],FILTER_SANITIZE_NUMBER_INT):NULL;
-			$prestacao =isset($post['prestacao'])?filter_var($post['prestacao'],FILTER_SANITIZE_NUMBER_INT):NULL;
+			// a possiblidade de ter letra na duplicata
+			$duplicata =isset($post['duplicata'])?filter_var($post['duplicata'],FILTER_SANITIZE_SPECIAL_CHARS):NULL;
+			$prestacao =isset($post['prestacao'])?filter_var($post['prestacao'],FILTER_SANITIZE_SPECIAL_CHARS):NULL;
 			$codCliente=isset($post['codCliente'])?filter_var($post['codCliente'],FILTER_SANITIZE_NUMBER_INT):NULL;
+
 			if($duplicata != NULL || $codCliente != NULL){
 				if($duplicata != '' && $codCliente != '' && $prestacao != ""){
 					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
@@ -30,10 +31,7 @@ class Duplicata
 				}else{
 					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
 					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}' or codcli='{$codCliente}'  ";
-				}
-
-
-				
+				}		
 				
 				
 			    $res = $this->executeSql($sql);
@@ -41,7 +39,7 @@ class Duplicata
 
 			    return $res;
 			}else{
-				$_SESSION['error']['somenteNumber']='somente numero!';
+				$_SESSION['error']['somenteNumber']='não pode ser vazio';
 			}
 
 		    

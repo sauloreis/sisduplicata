@@ -1,108 +1,116 @@
 <?php
-// fomulario da duplicata junto com o inicio da tabela
-// separei para nao suja muito o php 
+
+/*
+*
+*   fomulario da duplicata junto com o inicio da tabela
+*	separei para nao suja muito o php 
+*
+*/
+
 ?>
-	
- 
+
+
 
 <div class="container mt=4">
-		<nav aria-label="breadcrumb">
+	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="index.php">Home</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Duplicata</li>
 		</ol>
-		</nav>
+	</nav>
 
 
-				<div class="row mb-4 ">
-				<div class="alertaSucesso">
-					<div id='alertBalon-erro'class="alert alert-success alert-dismissible" style='display:none' role="alert">
-						<strong id="txtAlert"></strong> 
-						
-						
+	<div class="row mb-4 ">
+		<div class="alertaSucesso">
+			<div id='alertBalon-erro' class="alert alert-success alert-dismissible" style='display:none' role="alert">
+				<strong id="txtAlert"></strong>
+
+
+			</div>
+		</div>
+	</div>
+	<form class="col-md-12" id="searchduplicata">
+		<div class="row">
+			<div class="col-md-4 ">
+				<label for="codduplicata">Duplicata</label>
+				<input type="text" name="DUPLIC" class="form-control" id="codduplicata" placeholder="Duplicata">
+			</div>
+			<div class="col-md-2  ">
+				<label for="prestacao">Prestação</label>
+				<input type="text" name="PREST" class="form-control" id="prestacao" placeholder="Prestação">
+			</div>
+
+			<div class="col-md-4 ">
+				<label for="codCliente">Cod Cliente</label>
+				<input type="text" name="CODCLI" class="form-control" id="codCliente" placeholder="Codigo do Cliente">
+			</div>
+
+			<div class="col-sm-2 buton pt-4 ">
+				<input type="submit" class="btn btn-primary " id="buttonSearch" name='buttonSearch' value="Procurar">
+			</div>
+		</div>
+
+	</form>
+
+</div>
+<?php // Imprimi erro na tela se tive algum erro
+?>
+
+<div class="Erro">
+	<?php
+	$erro = isset($_SESSION['error']) ? $_SESSION['error'] : "";
+	echo (isset($erro['campoVazio']) ? $erro['campoVazio'] : "");
+	echo (isset($erro['somenteNumber']) ? $erro['somenteNumber'] : "");
+	echo (isset($erro['naoEcontrado']) ? $erro['naoEcontrado'] : "");
+	$nrowsAffcted = isset($_SESSION['nrowsAffcted']) ? $_SESSION['nrowsAffcted'] : "";
+	echo (isset($_SESSION['nrowsAffcted']) ? $_SESSION['nrowsAffcted'] : "");
+
+	?>
+
+</div>
+<div class="alertaSucesso">
+	<div id='alertBalon' class="alert alert-success alert-dismissible fade " role="alert">
+		<strong id="txtAlert">Atualizado com sucesso!</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+</div>
+
+
+
+
+
+<div class="table-responsive">
+	<table class="table  table-condensed table-bordered table-hover table-sm">
+
+		<thead>
+			<tr>
+				<th>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+						<label class="form-check-label" for="flexCheckDefault">
+
+						</label>
 					</div>
-				</div>
-					<form class="col-md-12" id="searchduplicata">
-						<div class="row">
-							<div class="col-md-4 ">
-								<label for="codduplicata">Duplicata</label>
-								<input type="text" name="DUPLIC" class="form-control" id="codduplicata" placeholder="Duplicata">
-							</div>
-							<div class="col-md-2  ">
-								<label for="prestacao">Prestação</label>
-								<input type="text" name="PREST" class="form-control" id="prestacao" placeholder="Prestação">
-							</div>
-
-								<div class="col-md-4 ">
-									<label for="codCliente">Cod Cliente</label>
-									<input type="text" name="CODCLI" class="form-control" id="codCliente" placeholder="Codigo do Cliente">
-								</div>
-
-								<div class="col-sm-2 buton pt-4 ">
-								<input type="submit" class="btn btn-primary " id="buttonSearch" name='buttonSearch' value="Procurar" >
-							</div>
-						</div>		  
-
-					</form>
-
-				</div>
-				<?php // Imprimi erro na tela se tive algum erro?>
-
-				<div class="Erro">
-					<?php 
-						$erro=isset($_SESSION['error'])?$_SESSION['error']:"";
-							echo(isset($erro['campoVazio'])? $erro['campoVazio']:"" );
-							echo(isset($erro['somenteNumber'])? $erro['somenteNumber']:"" );
-							echo(isset($erro['naoEcontrado'])? $erro['naoEcontrado']:"" ); 
-							$nrowsAffcted=isset($_SESSION['nrowsAffcted'])?$_SESSION['nrowsAffcted']:"";
-							echo(isset($_SESSION['nrowsAffcted'])? $_SESSION['nrowsAffcted']:"" );
-
-					?>
-					
-				</div>
-				<div class="alertaSucesso">
-					<div id='alertBalon'class="alert alert-success alert-dismissible fade " role="alert">
-						<strong id="txtAlert">Atualizado com sucesso!</strong> 
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				</div>	
-				
-				
-
-				
-
-		<div class="table-responsive">
-			<table class="table  table-condensed table-bordered table-hover table-sm">
-
-				<thead >
-					<tr>
-						<th>
-							<div class="form-check">
-  								<input class="form-check-input" type="checkbox" value=""id="flexCheckDefault">
-  								<label class="form-check-label" for="flexCheckDefault">
-    						
-  								</label>
-								</div>
-						</th>
-						<th scope="col">CODCLIENTE </th>
-					    <th scope="col">PRESTACAO </th>
-					    <th scope="col">DUPLICATA </th>
-					    <th scope="col">VALOR </th>
-					    <th scope="col">DT VENCIMENTO </th>
-					    <th scope="col">CODCOB </th>
-					    <th scope="col">VALOR PAGO </th>
-					    <th scope="col">TXPERM </th>
-					    <th scope="col">DATA PAGAMENTO </th>
-					    <th scope="col">DTEMISSAO </th>
-					    <th scope="col">OPERACAO </th>
-					    <th scope="col">DTDESC </th>
-					    <th scope="col">PERDESC </th>
-					    <th scope="col">CODFILIAL </th>
-					    <th scope="col">STATUS </th>
-					    <th scope="col">CODUSUR </th>
-					    <!-- <th scope="col">VALORDESC </th>
+				</th>
+				<th scope="col">CODCLIENTE </th>
+				<th scope="col">PRESTACAO </th>
+				<th scope="col">DUPLICATA </th>
+				<th scope="col">VALOR </th>
+				<th scope="col">DT VENCIMENTO </th>
+				<th scope="col">CODCOB </th>
+				<th scope="col">VALOR PAGO </th>
+				<th scope="col">TXPERM </th>
+				<th scope="col">DATA PAGAMENTO </th>
+				<th scope="col">DTEMISSAO </th>
+				<th scope="col">OPERACAO </th>
+				<th scope="col">DTDESC </th>
+				<th scope="col">PERDESC </th>
+				<th scope="col">CODFILIAL </th>
+				<th scope="col">STATUS </th>
+				<th scope="col">CODUSUR </th>
+				<!-- <th scope="col">VALORDESC </th>
 					    <th scope="col">DTULTALTER </th>
 					    <th scope="col">BOLETO </th>
 					    <th scope="col">NUMBANCO </th>
@@ -124,7 +132,7 @@
 					    <th scope="col">DTVENCORIG </th>
 					    <th scope="col">CODSUPERVISOR </th>
 					    <th scope="col">CODBANCO </th> -->
-					    <!-- <th scope="col">CODCOBBANCO </th>
+				<!-- <th scope="col">CODCOBBANCO </th>
 					    <th scope="col">DTCXMOT </th>
 					    <th scope="col">TIPO </th>
 					    <th scope="col">LINHADIG </th>
@@ -622,10 +630,7 @@
 					    <th scope="col">CARTEIRADIGITAL </th>
 					    <th scope="col">NOMECARTEIRADIGITAL </th>
 					    <th scope="col">ARQUIVOSERASA</th> -->
-					</tr>
-				</thead>
-				<tbody>
-
-					
-
-						
+			</tr>
+		</thead>
+		<tbody>
+			<script src="js/form.js"></script>

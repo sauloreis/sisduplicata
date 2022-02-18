@@ -15,10 +15,10 @@ session_start();
   
 ?>
     <div class="container">
-					<a href="admin/">admin</a>
+				
       <form class="form-signin" method="POST" action="valida.php">
 		  <figure class="figure mb-4">
-		  <br> <img src="imagens/imagem.png" width="300px" class="img-fluid figure-img"></br>
+		  <br> <img src="assets/img/imagem.png" width="300px" class="img-fluid figure-img"></br>
 		  </figure>
 	 
 				<div class="Erro">
@@ -78,21 +78,21 @@ session_start();
 		<?php require_once('includes/footer.php'); ?>
 
 	</footer><!-- End footer -->
-	<script src="<?php echo(PATH);?>assets/plugins/jquery/dist/jquery.min.js"></script>
+	<script src="<?php echo(DIR_JS);?>assets/plugins/jquery/dist/jquery.min.js"></script>
 	<!-- Bootstrap tether Core JavaScript -->
-	<script src="<?php echo(PATH);?>assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="<?php echo(PATH);?>js/app-style-switcher.js"></script>
+	<script src="<?php echo(DIR_JS);?>assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="<?php echo(DIR_JS);?>app-style-switcher.js"></script>
 	<!--Wave Effects -->
-	<script src="<?php echo(PATH);?>js/waves.js"></script>
+	<script src="<?php echo(DIR_JS);?>waves.js"></script>
 	<!--Menu sidebar -->
-	<script src="<?php echo(PATH);?>js/sidebarmenu.js"></script>
+	<script src="<?php echo(DIR_JS);?>sidebarmenu.js"></script>
 	<!--Custom JavaScript -->
-	<script src="<?php echo(PATH);?>js/custom.js"></script>
+	<script src="<?php echo(DIR_JS);?>custom.js"></script>
 	<!--This page JavaScript -->
 	<!--flot chart-->
-	<script src="<?php echo(PATH);?>assets/plugins/flot/jquery.flot.js"></script>
-	<script src="<?php echo(PATH);?>assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-	<script src="<?php echo(PATH);?>js/pages/dashboards/dashboard1.js"></script>
+	<script src="<?php echo(DIR_JS);?>assets/plugins/flot/jquery.flot.js"></script>
+	<script src="<?php echo(DIR_JS);?>assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+	<script src="<?php echo(DIR_JS);?>pages/dashboards/dashboard1.js"></script>
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

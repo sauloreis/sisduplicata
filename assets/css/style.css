@@ -1,0 +1,44 @@
+body {
+    position: relative;
+    padding: 0 !important;
+    background-color: #f6efec;
+}
+
+.buton {
+    height: 80px;
+    display: flex !important;
+    align-items: center !important;
+}
+
+table {
+    font-size: 10pt;
+}
+
+th {
+    text-align: center;
+    padding: 9px !important;
+    background-color: #ccc;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle !important;
+    border-left: 1 px solid green;
+    border-left: 0;
+    border-right: 1px solid #ccc;
+}
+
+.alertaSucesso {
+    top: 0;
+    position: absolute;
+}
+
+#email_exist,
+#user_exist {
+    position: absolute;
+    top: -30px;
+}
+
+#alertBalon {
+    display: none;
+}

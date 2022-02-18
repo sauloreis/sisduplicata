@@ -5,12 +5,12 @@
 	if($_POST['email']!='' and $_POST['senha']!=''){
 		$usuario =  $_POST['email']; //Escapar de caracteres especiais, como aspas, prevenindo SQL injection
 		$senha =  $_POST['senha'];
-		//$senha = md5($senha);
+		$senha = md5($senha);
 		
 		//Incluindo a conexão com banco de dados
-		require_once("ConOracle.php");	
+		require_once("config/ConOracle.php");	
 		//Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
-		$sql = "SELECT * FROM G4M_USER WHERE email = '$usuario' and senha = '$senha' ";
+		$sql = "SELECT * FROM g4m_user_producao WHERE email = '$usuario' and senha = '$senha' ";
 		$con = new ConOracle();
 	    $link = $con->conectar();
 	    $stid = oci_parse($link, $sql);
