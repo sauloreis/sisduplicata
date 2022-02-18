@@ -42,7 +42,7 @@
 
 				if($_SESSION['niveisDeacesso'] == 1){
 					
-					header("Location: searchduplicata.php");
+					header("Location: admin");
 				  }elseif($_SESSION['niveisDeacesso'] == "2"){
 						echo('niveis_acesso 2');
 						header("Location: colaborador.php");
