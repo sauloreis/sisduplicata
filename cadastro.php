@@ -34,6 +34,7 @@
             <div class="form-group col-md-3">
                     <label for="nome">Matricula</label>
                     <input type="text" class="form-control" name="matricula" id="matricula" placeholder="Matricula">
+                    <div id="matricula_exist" ></div>
             </div>
             
         <div class="form-row">

@@ -16,7 +16,7 @@ if (isset($_POST['token'])) {
 
     $emailUser = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_SANITIZE_EMAIL): "";
     $usuario = isset($_POST['username']) ? filter_var($_POST['username'], FILTER_SANITIZE_STRING): "";
-    
+    $matricula =isset($_POST['matricula']) ? filter_var($_POST['matricula'], FILTER_SANITIZE_NUMBER_INT): "";
 
      $con = new ConOracle();
 	 $link = $con->conectar();
@@ -38,9 +38,7 @@ if (isset($_POST['token'])) {
                 echo "</div>";
                 
             }else{
-                echo "<div class='alert alert-success my-2' role='alert'>";
-                echo  " e-mail disponível";
-                echo "</div>";
+               echo"<div class='email-disponivel'></div>";
                
             }
         
@@ -58,10 +56,26 @@ if (isset($_POST['token'])) {
             echo " Username já cadastrado";
             echo "</div>";
         } else {
-            echo "<div class='alert alert-success my-2' role='alert'>";
-            echo " Username disponível";
-            echo "</div>";
+           echo"<div class='username-diponivel'></div>";
         }
+    }
+
+    //matricula
+
+    if ($matricula != "") {
+
+        $sql = "SELECT LOGIN FROM g4m_user_producao where MATRICULA= '$matricula' ";
+        $stid = oci_parse($link, $sql); 
+      
+        oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
+
+        if ($email =  oci_fetch_assoc($stid)) {
+            echo "<div class='alert alert-danger my-2' role='alert'>";
+            echo " Matricula já existe";
+            echo "</div>";
+        }else{
+            echo"<div class=' matricula'></div>";
+        } 
     }
    
      oci_close($link); 

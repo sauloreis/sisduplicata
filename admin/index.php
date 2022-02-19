@@ -1,5 +1,10 @@
 <?php 
     session_start();
+    if(isset($_SESSION['niveisDeacesso'])){
+        //var_dump($_SESSION['niveisDeacesso']);
+        $nivelAcesso = isset($_SESSION['niveisDeacesso']) ? $_SESSION['niveisDeacesso'] : "";
+    }
+
     if (!isset($_SESSION['usuarioId']) and !isset($_SESSION['usuarioEmail'])) {
             $_SESSION['error']['notAuthorized'] = "faça o login ou crie uma conta";
         		header("Location: ../index.php");
@@ -38,9 +43,44 @@
                 <div class="row d-flex mt-5 justify-content-center">
                     <div class="menu-list col-md-10 d-flex ">
                         <ul class=" col-md-12 ">
-                            <li id="duplicata"><i  class="fas fa-file-signature"></i></i><a href="#"><span class="text-menu">Duplicata</span></a></li>
-                            <li><i class="fas fa-cogs"></i><a href="#"><span class="text-menu">Serviços</span></a></li>
-                            <li><i class="fas fa-user-friends"></i></i><a href="#"><span class="text-menu">Usuarios</span></a></li>
+                         <?php
+                             if($nivelAcesso == 2 || $nivelAcesso == 1 )//estrategico
+                                echo"<li id='duplicata' class='link-menu'>
+                                        <i  class='fas fa-file-signature '></i>
+                                        <a href='searchDuplicata'><span class='text-menu'>Duplicata</span>
+                                        </a>
+                                        <ul style='display:none;' class ='submenu'>
+                                            <li>                                                
+                                                <a href='searchDuplicata'>Duplicata
+                                            </a>
+                                            </li>
+                                        </ul>
+                                     </li>";
+                        
+                            
+                             if($nivelAcesso == 3 || $nivelAcesso == 1 ) //comercial
+                                 echo"<li class='link-menu'>
+                                         <i class='fas fa-cogs'></i>
+                                         <a href='comercial'><span class='text-menu '>comercial</span>
+                                         </a>
+                                       </li>";
+                           
+                            
+                              if($nivelAcesso == 4 || $nivelAcesso ==1) //operacional
+                                echo" <li class='link-menu'>
+                                        <i class='fas fa-user-friends'></i>
+                                        <a href='operacional'><span class='text-menu '>operacional</span>
+                                        </a>
+                                       </li>";
+                            
+                            
+                              if($nivelAcesso == 1)
+                                 echo"<li class='link-menu'>
+                                        <i class='fas fa-user-friends'></i>
+                                        <a href='administrativo'><span class='text-menu '>Admistrador</span>
+                                        </a>
+                                      </li>";
+                            ?>
                         </ul>
                     </div>
                     
@@ -64,12 +104,79 @@
                     </div>
                 </div>
                     <div class="row col-md-12">
-                        <div class="container-content mt-4 col-md-12">   
-                            <div  class="loadPG col-md-12">
-                            <?php // aqui carrega a duplicata?>
+                        <div class="container-content mt-4 col-md-12">
+
+                           <div class="container mt=4">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="index">Home</a></li>
+                                        <li class="breadcrumb-item active" id='breadcrumb-item-active'aria-current="page"></li>
+                                    </ol>
+                                </nav>
                             </div>
-                     </div>
-            </div>
+ 
+
+
+                            <div  class="loadPG col-md-12">
+
+
+
+                                <?php // aqui carrega a duplicata?>
+                                <div class="boxescontent">
+                                    
+                                
+                                    <div class="caixa">
+                                        <?php
+                                        if($nivelAcesso == 2 || $nivelAcesso == 1 )//estrategico
+                                            echo" <div class='link-menu-box'>             
+                                                    <a href='searchDuplicata'>
+                                                        <i  class='fas fa-file-signature '></i>
+                                                        <span >Duplicata</span>
+                                                    </a>
+                                                  </div>
+                                                ";
+                                        ?>
+                                    </div>
+                                    <div class="caixa">
+                                        <?php
+                                        if($nivelAcesso == 3 || $nivelAcesso == 1 )//comercial
+                                        echo" <div class='link-menu-box'>
+                                                <a href='comercial'>
+                                                     <i class='fas fa-cogs'></i>
+                                                    <span >comercial</span>
+                                                </a>
+                                              </div>
+                                            ";
+                                        ?>
+                                    </div>
+                                    <div class="caixa" >
+                                        <?php
+                                        if($nivelAcesso == 4 || $nivelAcesso == 1 )//operacional
+                                        echo" <div class='link-menu-box'>
+                                                <a href='operacional'>
+                                                    <i class='fas fa-user-friends'></i>
+                                                    <span >operacional</span>
+                                                </a>
+                                              </div>
+                                            ";
+                                        ?>
+                                    </div>
+                                    <div class="caixa">
+                                        <?php
+                                        if($nivelAcesso == 1 )//Admistrador
+                                        echo" <div class='link-menu-box'>
+                                                <a href='administrativo'>
+                                                     <i class='fas fa-user-friends'></i>
+                                                    <span >Admistrador</span>
+                                                </a>
+                                              </div>
+                                            ";
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             
         </div>
     </div>

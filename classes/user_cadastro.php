@@ -17,24 +17,30 @@ if (isset($_POST['token'])) {
     switch ($diretoria){
         case '1':
             $diretoria =1;
+            $nivelAcesso =1;
             break;
         case '2':
             $diretoria =2;
+            $nivelAcesso =2;
             break;
         case '3':
             $diretoria =3;
+            $nivelAcesso =3;
             break;
         default:
             $diretoria =4;
+            $nivelAcesso =4;
             break;
     }
+
 
    
     //verificando se o usuário já existe
     $chekemail = checkEmailexist($email);
     $checkUser = checkUserExist($username);
+    // $checkMatriculaExist=checkMatriculaExist($matricula);
 
-    if ($chekemail == false && $checkUser == false) {
+    if ($chekemail == false && $checkUser == false ) {
 
         $sql = "Insert into g4m_user_producao (MATRICULA,NOME,LOGIN,EMAIL,SETOR,SENHA,DIRETORIA,NIVEIS_ACESSO)"; 
         $sql .= " values ('$matricula','$nome','$username','$email','$setor','$password','$diretoria', '$nivelAcesso')"; 
@@ -98,5 +104,20 @@ function checkUserExist($usuario){
         return $res;
         oci_close($link);        
     }
+
+function checkMatriculaExist($matricula){
+    if ($matricula != "") {
+
+        $con = new ConOracle();
+        $link = $con->conectar();
+        $sql = "SELECT LOGIN FROM g4m_user_producao where MATRICULA= '$matricula' ";
+        $stid = oci_parse($link, $sql); 
+      
+        oci_execute($stid,OCI_COMMIT_ON_SUCCESS);
+        $res = oci_fetch_assoc($stid);
+        return $res;
+        oci_close($link);        
+    }
     
+}
 }

@@ -12,12 +12,7 @@
 
 
 <div class="container mt=4">
-	<nav aria-label="breadcrumb">
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="index.php">Home</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Duplicata</li>
-		</ol>
-	</nav>
+	
 
 
 	<div class="row mb-4 ">

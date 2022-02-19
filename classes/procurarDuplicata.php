@@ -13,19 +13,21 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
     $prestacao =isset($_POST['PREST'])?filter_var($_POST['PREST'],FILTER_SANITIZE_NUMBER_INT):NULL;
     $codCliente=isset($_POST['CODCLI'])?filter_var($_POST['CODCLI'],FILTER_SANITIZE_NUMBER_INT):NULL;
     if($duplicata != NULL || $codCliente != NULL){
-
+            $dtvenc ="TO_CHAR(TO_DATE(DTVENC),'dd/mm/yyyy')";
+            $dtpag ="TO_CHAR(TO_DATE(DTPAG),'dd/mm/yyyy')";
+            $dtemissao ="TO_CHAR(TO_DATE(DTEMISSAO),'dd/mm/yyyy')";
 
         if($duplicata != '' && $codCliente != '' && $prestacao != ""){
-					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+					$sql = "select CODCLI,PREST,DUPLIC,VALOR, {$dtvenc},CODCOB,VPAGO,TXPERM,{$dtpag},{$dtemissao},OPERACAO,DTDESC,PERDESC";
 					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}' and codcli='{$codCliente}' and PREST =$prestacao ";
 				}elseif ($duplicata != '' && $prestacao != "" ){
-					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+					$sql = "select CODCLI,PREST,DUPLIC,VALOR, {$dtvenc},CODCOB,VPAGO,TXPERM,{$dtpag},{$dtemissao},OPERACAO,DTDESC,PERDESC";
 					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}'  and PREST =$prestacao ";
 				}elseif ($codCliente != '' && $prestacao != "" ){
-					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+					$sql = "select CODCLI,PREST,DUPLIC,VALOR, {$dtvenc},CODCOB,VPAGO,TXPERM,{$dtpag},{$dtemissao},OPERACAO,DTDESC,PERDESC";
 					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where codcli='{$codCliente}' and PREST =$prestacao ";
 				}else{
-					$sql = "select CODCLI,PREST,DUPLIC,VALOR,DTVENC,CODCOB,VPAGO,TXPERM,DTPAG,DTEMISSAO,OPERACAO,DTDESC,PERDESC";
+					$sql = "select CODCLI,PREST,DUPLIC,VALOR, {$dtvenc},CODCOB,VPAGO,TXPERM,{$dtpag},{$dtemissao},OPERACAO,DTDESC,PERDESC";
 					$sql.=",CODFILIAL,STATUS,CODUSUR from PCPREST Where DUPLIC='{$duplicata}' or codcli='{$codCliente}'  ";
 				}	
         
@@ -46,7 +48,8 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
                 $codCli =$r['CODCLI'] ;
                 $duplicata= $r['DUPLIC'];
                 $prestacao =$r['PREST'] ;
-                $dataPaga = "{$r['DTPAG']}";
+                $dataPaga = $r["TO_CHAR(TO_DATE(DTPAG),'DD/MM/YYYY')"];
+                
                 
                 echo"<tr>"; //<!-- inicio da linha da tabela       -->
                 echo "
@@ -59,7 +62,7 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
                     </div>
                     </td>";
                         
-                 foreach ($r as $key => $value) {        	 	
+                 foreach ($r as $key => $value) { 
                     
                      echo "<td>
                       <label class='form-check-label' for='checkbox{$cod}'>

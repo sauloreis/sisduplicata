@@ -88,6 +88,30 @@
     color: #ccc;
 }
 
+/***********************
+        submen
+ */   
+.submenu {
+
+}
+.submenu li{
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 20px;
+    background: var(--colo-segundaria);
+    height: 40px;
+    width: 100%;
+    z-index: 1;
+
+}
+.submenu li a{
+   /* margin-top: 0px;
+    background: var(--colo-segundaria);
+    height: 40px;
+    width: 100%;*/
+}
+
+/* endsubmenu */
 .power {
     background-color: #66b9bf;
     height: 50px;
@@ -119,7 +143,52 @@
     text-decoration: none;
     color: var(--colo-segundaria);
 }
+/******************************
+    admin 
 
+*/
+.boxescontent{
+      
+   display: flex;
+   flex-wrap: wrap;
+   
+}
+.boxescontent .caixa{
+    background: var(--color-background);
+    height: 150px !important;
+    width: 150px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #000000;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     
+}
+.link-menu-box{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+     flex-direction: column;
+     align-items: center;     
+     justify-content: center; 
+    
+}
+.link-menu-box i{
+    font-size: 4em;
+    color: var(--color-pricipal);
+}
+.link-menu-box i:hover{
+    font-size: 4.2em;
+    color: var(--colo-segundaria);
+}
+.link-menu-box a{
+    text-decoration: none;
+    text-align: center;
+}
+.link-menu-box a:hover{
+    color: var(--colo-segundaria);
+}
 @media screen and (max-width: 768px) {
     .menu {
         position: absolute;

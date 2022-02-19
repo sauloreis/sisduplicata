@@ -34,7 +34,8 @@ td {
 }
 
 #email_exist,
-#user_exist {
+#user_exist,
+#matricula_exist {
     position: absolute;
     top: -30px;
 }

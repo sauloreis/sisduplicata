@@ -40,17 +40,22 @@
 				$_SESSION['niveisDeacesso'] = $niveisDeacesso;
 				$_SESSION['usuarioEmail'] = $usuarioEmail;
 
-				if($_SESSION['niveisDeacesso'] == 1){
-					
-					header("Location: admin");
-				  }elseif($_SESSION['niveisDeacesso'] == "2"){
-						echo('niveis_acesso 2');
-						header("Location: colaborador.php");
-				     }else{
-							echo('niveis_acesso 3');
-							header("Location: cliente.php");
-							
-						}
+				header("location: admin");
+				// switch($niveisDeacesso){
+				// 	case 1:
+				// 		header("Location: admin");
+				// 		break;
+				// 	case 2:
+				// 		header("Location: estrategico");
+				// 		break;
+				// 	case 3:
+				// 		header("Location: comercial");
+				// 		break;
+				// 	case 4:
+				// 		header("Location: operacional");
+				// 		break;
+
+				// }
 			}else{
 				$_SESSION['error']['loginErro'] = "Usuário ou senha Inválido";
 				header("Location: index.php");

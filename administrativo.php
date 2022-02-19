@@ -3,4 +3,4 @@
 	echo "Usuario: ". $_SESSION['usuarioNome'];	
 ?>
 <br>
-<a href="sair.php">Sair</a>
+<h1>Administrativo</h1>
