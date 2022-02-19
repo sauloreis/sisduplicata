@@ -121,13 +121,13 @@
 
 
 
-                                <?php // aqui carrega a duplicata?>
-                                <div class="boxescontent">
+                                <?php 
+                                echo "<div class='boxescontent'>";
                                     
-                                
-                                    <div class="caixa">
-                                        <?php
-                                        if($nivelAcesso == 2 || $nivelAcesso == 1 )//estrategico
+                        if($nivelAcesso == 2 || $nivelAcesso == 1 ){//estrategico  
+                                 echo " <div class='caixa'>";
+                                        
+                                       
                                             echo" <div class='link-menu-box'>             
                                                     <a href='searchDuplicata'>
                                                         <i  class='fas fa-file-signature '></i>
@@ -135,11 +135,13 @@
                                                     </a>
                                                   </div>
                                                 ";
-                                        ?>
-                                    </div>
-                                    <div class="caixa">
-                                        <?php
-                                        if($nivelAcesso == 3 || $nivelAcesso == 1 )//comercial
+                                        
+                                echo"</div>";
+                            }
+                        if($nivelAcesso == 3 || $nivelAcesso == 1 ){//comercial
+                               echo"<div class='caixa'>";
+                                        
+                                       
                                         echo" <div class='link-menu-box'>
                                                 <a href='comercial'>
                                                      <i class='fas fa-cogs'></i>
@@ -147,11 +149,11 @@
                                                 </a>
                                               </div>
                                             ";
-                                        ?>
-                                    </div>
-                                    <div class="caixa" >
-                                        <?php
-                                        if($nivelAcesso == 4 || $nivelAcesso == 1 )//operacional
+                                        
+                               echo" </div>";
+                           }
+                        if($nivelAcesso == 4 || $nivelAcesso == 1 ){//operacional
+                              echo" <div class='caixa' >";
                                         echo" <div class='link-menu-box'>
                                                 <a href='operacional'>
                                                     <i class='fas fa-user-friends'></i>
@@ -159,11 +161,11 @@
                                                 </a>
                                               </div>
                                             ";
-                                        ?>
-                                    </div>
-                                    <div class="caixa">
-                                        <?php
-                                        if($nivelAcesso == 1 )//Admistrador
+                                        
+                              echo" </div>";
+                          }
+                            if($nivelAcesso == 1 ){//Admistrador
+                              echo"<div class='caixa'>";  
                                         echo" <div class='link-menu-box'>
                                                 <a href='administrativo'>
                                                      <i class='fas fa-user-friends'></i>
@@ -171,9 +173,11 @@
                                                 </a>
                                               </div>
                                             ";
-                                        ?>
-                                    </div>
-                                </div>
+                                        
+                                echo" </div>";
+                            }
+                         echo" </div>"; 
+                         ?>      
                             </div>
                         </div>
                     </div>
