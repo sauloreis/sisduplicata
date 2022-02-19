@@ -2,7 +2,7 @@
 
 
 // Caminho absoluto para pasta interna
-$pastaInterna = "sistema_de_altera-o_de_data_pagamento/";
+$pastaInterna = "sisduplicata/";
 define("URL_BASE", "http://{$_SERVER['HTTP_HOST']}/{$pastaInterna}");
 
 //Caminho absoluto para as requisições do servidor

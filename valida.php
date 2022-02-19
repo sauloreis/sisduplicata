@@ -8,7 +8,7 @@
 		$senha = md5($senha);
 		
 		//Incluindo a conexão com banco de dados
-		require_once("config/ConOracle.php");	
+		require_once("config/conn.php");	
 		//Buscar na tabela usuario o usuário que corresponde com os dados digitado no formulário
 		$sql = "SELECT * FROM g4m_user_producao WHERE email = '$usuario' and senha = '$senha' ";
 		$con = new ConOracle();

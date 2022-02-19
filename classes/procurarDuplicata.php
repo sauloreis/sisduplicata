@@ -1,5 +1,5 @@
 <?php
-require_once("../config/ConOracle.php");
+require_once("../config/conn.php");
 
 // if (!isset($_SESSION['usuarioId']) and !isset($_SESSION['usuarioEmail'])) {
 //     $_SESSION['error']['notAuthorized'] = "faça o login ou crie uma conta";
@@ -97,7 +97,7 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
 
     
 }else{
-    echo("Entrando no else");
+    
     $_SESSION['erro']['campoVazio']='Preencha pelo menos um campo CODCLIENTE ou DUPLICATA!';
 
 }

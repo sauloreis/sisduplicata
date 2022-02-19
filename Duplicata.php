@@ -2,7 +2,7 @@
 // Class Duplicata 
 // 
 
-require_once("config/ConOracle.php");
+require_once("config/conn.php");
 
 class Duplicata
 {

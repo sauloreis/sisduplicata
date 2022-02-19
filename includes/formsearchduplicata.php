@@ -53,10 +53,10 @@
 
 <div class="Erro">
 	<?php
-	$erro = isset($_SESSION['error']) ? $_SESSION['error'] : "";
-	echo (isset($erro['campoVazio']) ? $erro['campoVazio'] : "");
+	$erro = isset($_SESSION['error'])   ? $_SESSION['error']     : "";
+	echo (isset($erro['campoVazio'])    ? $erro['campoVazio']    : "");
 	echo (isset($erro['somenteNumber']) ? $erro['somenteNumber'] : "");
-	echo (isset($erro['naoEcontrado']) ? $erro['naoEcontrado'] : "");
+	echo (isset($erro['naoEcontrado'])  ? $erro['naoEcontrado']  : "");
 	$nrowsAffcted = isset($_SESSION['nrowsAffcted']) ? $_SESSION['nrowsAffcted'] : "";
 	echo (isset($_SESSION['nrowsAffcted']) ? $_SESSION['nrowsAffcted'] : "");
 

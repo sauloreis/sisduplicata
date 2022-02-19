@@ -2,7 +2,7 @@
 
 if (isset($_POST['token'])) {
 
-    require_once("../config/ConOracle.php");    
+    require_once("../config/conn.php");    
 
     $matricula= isset($_POST['matricula']) ? filter_var($_POST['matricula'],FILTER_SANITIZE_NUMBER_INT) : "";
     $nome     = isset($_POST['nome']) ? filter_var($_POST['nome'],FILTER_SANITIZE_SPECIAL_CHARS) : "";
