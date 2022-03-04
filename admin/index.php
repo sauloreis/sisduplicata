@@ -1,7 +1,15 @@
 <?php 
     session_start();
+
+    date_default_timezone_set('America/Manaus');
+    $dateSistema = date('m-d-Y h:i:s ');   
+    $soUsername = getenv('USERNAME');
+    $soNomeMaquina=getenv('COMPUTERNAME');
+    $soIp = getenv('REMOTE_ADDR');
+   
+
     if(isset($_SESSION['niveisDeacesso'])){
-        //var_dump($_SESSION['niveisDeacesso']);
+        
         $nivelAcesso = isset($_SESSION['niveisDeacesso']) ? $_SESSION['niveisDeacesso'] : "";
     }
 
@@ -14,7 +22,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
@@ -25,7 +33,10 @@
     <title>Dashboard</title>
   </head>
   <body>
-    
+         <div class="sessionusername" data-user=" <?php echo ($_SESSION['usuarioNome']);?>"></div>
+         <div class="usuarioId" data-id=" <?php echo ($_SESSION['usuarioId']);?>"></div>
+         <div class="datahorasistema" data-horasis=" <?php echo ($dateSistema);?>"> </div>
+         <div class="nome-ip-maquina" data-nome-ip-maquina=" <?php echo ($soUsername.' || '.$soNomeMaquina.' || '.$soIp);?>"> </div>
     <div class="container-fluid">
         <div class="row">
             <div class="menu col-md-3 ">

@@ -55,12 +55,9 @@ if (isset($_POST['token'])) {
            
             echo " cadastrado com sucesso";
 
-            
-            
         }else{
             
-            echo  " Erro ao cadastrar";
-            
+            echo  " Erro ao cadastrar";    
         }
         oci_close($link); 
     }else{
