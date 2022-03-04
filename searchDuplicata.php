@@ -1,14 +1,16 @@
 <?php
 session_start();
 
+
+
+$user = $_SESSION['usuarioNome'];
+
 //informção do head
 $title = 'Pesquisar Duplicata';
 // require_once('includes/head.php');
 require_once ('Duplicata.php');
 
-// $_SESSION['usuarioId']='1';
-// $_SESSION['usuarioEmail']='helenilsoon@gmail.com';
-// $_SESSION['usuario']='helenilson';
+
 
 
 if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
@@ -37,7 +39,7 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 		
 	}    
 	//se existir um resultado da pesquisa  entra no if e percorre cada linha da pesquisa 
-	// var_dump($res);
+	
     if (isset($stid)) { 
     	
 		
@@ -47,13 +49,22 @@ if (isset($_SESSION['usuarioId']) and isset($_SESSION['usuarioEmail'])) {
 			$codCli =$r['CODCLI'] ;
 			$duplicata= $r['DUPLIC'];
 			$prestacao =$r['PREST'] ;
+			$dados = array(
+				$codCob =>$r['CODCOB'] ,
+				$dtVenc => $r['DTVENC'],
+				$valor => $r['VALOR'],
+				$vpago => $r['VPAGO'],
+			);
+			
+
+
 			$dataPaga = "{$r['DTPAG']}";
 			
         	echo"<tr>"; //<!-- inicio da linha da tabela       -->
         	echo "
         	 	<td><div class='form-check'>
   					<input class='form-check-input' type='checkbox' value='{$dataPaga}' id='checkbox{$cod}'
-					   onclick='valCheckBox($codCli,$duplicata,$prestacao,$cod)'>
+					   onclick='valCheckBox($codCli,$duplicata,$prestacao,$cod,$dados)'>
   					<label class='form-check-label' for='checkbox{$cod}'>
     				
   					</label>

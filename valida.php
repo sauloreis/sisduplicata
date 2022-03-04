@@ -41,21 +41,8 @@
 				$_SESSION['usuarioEmail'] = $usuarioEmail;
 
 				header("location: admin");
-				// switch($niveisDeacesso){
-				// 	case 1:
-				// 		header("Location: admin");
-				// 		break;
-				// 	case 2:
-				// 		header("Location: estrategico");
-				// 		break;
-				// 	case 3:
-				// 		header("Location: comercial");
-				// 		break;
-				// 	case 4:
-				// 		header("Location: operacional");
-				// 		break;
+				
 
-				// }
 			}else{
 				$_SESSION['error']['loginErro'] = "Usuário ou senha Inválido";
 				header("Location: index.php");

@@ -177,7 +177,7 @@ $(document).ready(function () {
         
 
         // $("#duplicata").click(function () {
-        //     console.log("Duplicata clicado");
+        //    ("Duplicata clicado");
         //     $('.loadPG').load("../searchDuplicata.php");
         //     // $('.container-caixa').hide();
         //     return false;

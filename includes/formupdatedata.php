@@ -1,6 +1,6 @@
 <?php
 // fim da tag tbody da table, table
-// fomulario pra mudar a data  
+// fomulario pra mudar a data 
 ?>
 
 					</tbody>	
@@ -20,6 +20,17 @@
 						<input type="hidden" name="CODCLI" id="CODCLI"  value="">
 						<input type="hidden" name="PREST"  id="PREST"  value="">
 						<input type="hidden" name="DUPLIC" id="DUPLIC"  value="">
+						<input type="hidden" name="datahorasistema" id="datahorasistema"  value="">
+						<input type="hidden" name="usuarioNome" id="usuarioNome"  value="">
+						<input type="hidden" name="usuarioId" id="usuarioId"  value="">						
+						<input type="hidden" name="codcob" id="codcob"  value="">						
+						<input type="hidden" name="dtvenc" id="dtvenc"  value="">
+						<input type="hidden" name="valor" id="valor"  value="">
+						<input type="hidden" name="vpago" id="vpago"  value="">
+						<input type="hidden" name="maquina" id="maquina"  value="">				
+			
+						
+						
 				  
 						<div class="form-group col-sm-3 ">
 							<label for="alterardtaPagamento">altera Data de Pagamento</label>

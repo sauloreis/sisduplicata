@@ -20,8 +20,8 @@ $(document).ready(function() {
     menuTogle();
     loadLinkMenu();
     loadLinkMenuBox();
-    submenu()
-
+    submenu();   
+   
     function menuTogle(){
 
         let windowWhidth = $(window)[0].innerWidth;
@@ -86,14 +86,14 @@ $(document).ready(function() {
     // function submenu(){
     //     let linkMEnu = $('.link-menu a');
     //     let submenu = $('.submenu');
-    //     console.log(submenu);
+  
     //     linkMEnu.hover(function () {
     //         if (submenu.attr("style") == "display:none;") {
     //             submenu.attr("style","display:inline-block;");
-    //             console.log('display inline');
+    //            
     //         }else{
     //            submenu.attr("style","display:none;");
-    //             console.log('display none');
+    //           
     //         }
     //     });
     // }
@@ -101,7 +101,7 @@ $(document).ready(function() {
     function loadLinkMenu(){
         $('.link-menu a').click(function(){
             let href = $(this).attr('href');
-            console.log(href);
+           
             $.ajax({
                 'url':'../'+href,
                 'success':function(data){
@@ -117,7 +117,7 @@ $(document).ready(function() {
     function loadLinkMenuBox(){
         $('.link-menu-box a').click(function(){
             let href = $(this).attr('href');
-            console.log(href);
+            
             $.ajax({
                 'url':'../'+href,
                 'success':function(data){

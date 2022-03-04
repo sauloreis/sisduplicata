@@ -1,17 +1,38 @@
-function valCheckBox(codClie, codDuplica, prestacao, value) {
+function valCheckBox(codClie, codDuplica, prestacao,value, codCob,dtVenc, valor, vpago) {
+    let dataUsername = $('.sessionusername').attr('data-user');
+    let dataUserId= $('.usuarioId').attr('data-id');
+    let datahorasistema  =$('.datahorasistema').attr('data-horasis'); 
+    let nomeIpMaquina  =$('.nome-ip-maquina').attr('data-nome-ip-maquina');  
     
+    let checkbox = $("#checkbox" + value).val();
+
+    let horaSistema =$('#datahorasistema');
+    let duplicata = $('#DUPLIC');
+    let presta = $('#PREST');
+    let codCliente = $('#CODCLI');
+    let cob = $('#codcob');
+    let Venc= $('#dtvenc');    
+    let val= $('#valor');
+    let valpago= $('#vpago');
+    let user =$('#usuarioNome');
+    let maquina = $('#maquina');
+    let dataPagamento = $("#dtaPagamento");
     
-    let checkbox = document.querySelector("#checkbox" + value).value;
-    let dataPagamento = document.querySelector("#dtaPagamento");
-    let codCliente = document.querySelector('#CODCLI');
-    let duplicata = document.querySelector('#DUPLIC');
-    let presta = document.querySelector('#PREST');
+    let userId = $('#usuarioId'); 
 
-    dataPagamento.value = checkbox;
-    codCliente.value = codClie;
-    duplicata.value = codDuplica;
-    presta.value = prestacao;
-
+    dataPagamento.val(checkbox) ;
+    codCliente.val(codClie) ;
+    duplicata.val(codDuplica);
+    presta.val(prestacao);
+    cob.val(codCob); 
+    Venc.val(dtVenc) ;
+    val.val(valor) ;
+    valpago.val(vpago) ;
+    user.val(dataUsername);
+    userId.val(dataUserId);
+    horaSistema.val(datahorasistema);
+    maquina.val(nomeIpMaquina);
+    
 
 }
 
@@ -30,7 +51,7 @@ $(document).ready(function() {
                 method: 'post',
                 data: $('#atualizarData').serialize(),
                 success: function(data) {
-                     console.log(data);
+                     
                     if (data) {
                        atualizarPagina(codDuplica, prestacao,codCliente);
                     } else {
@@ -45,9 +66,7 @@ $(document).ready(function() {
     });
     
     function atualizarPagina(duplicata,prestacao,codcliente) {
-            console.log('duplicata ='+duplicata+"<br>");
-            console.log('prestação ='+prestacao+"<br>");
-            console.log('codigo do cliente ='+codcliente+"<br>");
+           
             
         $.ajax({
                 url: '../classes/procurarDuplicata.php',
@@ -69,7 +88,7 @@ $(document).ready(function() {
         });
     }
 
-
+   
     $('#searchduplicata').submit(function() {
 
         if (($('#codduplicata').val() != "") || ($('#codCliente').val() != "")) {
@@ -81,11 +100,6 @@ $(document).ready(function() {
                 success: function(data) {
                    
                     $('.loadPG').html(data).fadeIn();
-                    
-
-                    //location.reload();
-                    // $('#alertBalon').removeClass('fade');
-                    // $('#alertBalon').addClass('show');
 
                 }
             });
@@ -105,39 +119,6 @@ $(document).ready(function() {
     });
 
 
-    // $("#buttonSearch").click(function() {
-    //     alert('clicado');
-    //     let codDuplica = $('#codduplicata').val();
-    //     let codCliente = $('#codCliente').val();
-
-    //     // if (($('#codduplicata').val() != "") || ($('#codCliente').val() != "")) {
-    //     //     console.log("if");
-    //     //     $.ajax({
-    //     //         url: '../classes/procurarDuplicata.php',
-    //     //         method: 'post',
-    //     //         data: $('#searchduplicata').serialize(),
-    //     //         success: function(data) {
-    //     //             console.log(data);
-    //     //             // $('.loadPG').load("searchDuplicata.php");
-
-
-    //     //             //location.reload();
-    //     //             // $('#alertBalon').removeClass('fade');
-    //     //             // $('#alertBalon').addClass('show');
-
-    //     //         }
-    //     //     });
-    //     // } else {
-    //     //     $('#alertBalon').removeClass('fade');
-    //     //     $('#alertBalon').addClass('show');
-    //     // }
-    //     return false;
-    // });
-
-
-
-
-
-
+  
 
 }); //ready

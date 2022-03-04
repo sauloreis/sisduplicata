@@ -44,22 +44,28 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
 		
             while($r = oci_fetch_array($stid,OCI_RETURN_NULLS+OCI_ASSOC) ){
                 
-                $cod = "{$r['CODCLI']}{$r['DUPLIC']}{$r['PREST']}";
-                $codCli =$r['CODCLI'] ;
+                $cod      = "{$r['CODCLI']}{$r['DUPLIC']}{$r['PREST']}";
+                $codCli   = $r['CODCLI'] ;
                 $duplicata= $r['DUPLIC'];
-                $prestacao =$r['PREST'] ;
+                $prestacao= $r['PREST'] ;
+                $codCob   = "{$r['CODCOB']}" ;
+                               
+			    $dtVenc   = $r["TO_CHAR(TO_DATE(DTVENC),'DD/MM/YYYY')"];			   
+                $valor    = $r['VALOR'];
+			    $vpago    = $r['VPAGO'];
                 $dataPaga = $r["TO_CHAR(TO_DATE(DTPAG),'DD/MM/YYYY')"];
                 
                 
                 echo"<tr>"; //<!-- inicio da linha da tabela       -->
                 echo "
-                     <td><div class='form-check'>
+                     <td>
+                        <div class='form-check'>
                           <input class='form-check-input' type='checkbox' value='{$dataPaga}' id='checkbox{$cod}'
-                           onclick='valCheckBox($codCli,$duplicata,$prestacao,$cod)'>
+                             onclick=\"valCheckBox($codCli, $duplicata, $prestacao,$cod, '$codCob','$dtVenc', $valor, $vpago)\">
                           <label class='form-check-label' for='checkbox{$cod}'>
                         
                           </label>
-                    </div>
+                        </div>
                     </td>";
                         
                  foreach ($r as $key => $value) { 
@@ -86,6 +92,7 @@ if(!empty($_POST['DUPLIC']) || !empty($_POST['CODCLI'])){
     
         } //fechamento do if
         // inclui o formulario para atualizar a data 
+        
         require_once("../includes/formupdatedata.php");
         return $stid;
 
