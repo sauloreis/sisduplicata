@@ -51,7 +51,7 @@ $(document).ready(function() {
                 method: 'post',
                 data: $('#atualizarData').serialize(),
                 success: function(data) {
-                     
+                     console.log(data);
                     if (data) {
                        atualizarPagina(codDuplica, prestacao,codCliente);
                     } else {
